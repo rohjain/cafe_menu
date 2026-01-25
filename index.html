@@ -20,15 +20,36 @@ body{
 h1{
   text-align:center;
   color:#fbc02d;
-  margin-bottom:4px;
 }
 .subtitle{
   text-align:center;
-  color:#ccc;
+  color:#bbb;
   margin-bottom:20px;
 }
+
+/* Category Buttons */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-bottom:20px;
+}
+.category-btn{
+  background:#1e1e1e;
+  border:1px solid #333;
+  padding:14px;
+  font-size:16px;
+  color:#fbc02d;
+  border-radius:10px;
+  cursor:pointer;
+}
+.category-btn:hover{
+  background:#2a2a2a;
+}
+
+/* Menu Section */
 .section{
-  margin-bottom:24px;
+  display:none;
 }
 .section h2{
   color:#fbc02d;
@@ -38,7 +59,7 @@ h1{
 .menu-item{
   display:flex;
   justify-content:space-between;
-  padding:6px 0;
+  padding:8px 0;
   font-size:15px;
 }
 .price{
@@ -48,12 +69,19 @@ h1{
 .note{
   font-size:13px;
   color:#bbb;
+  margin-top:8px;
 }
-.footer{
+.back{
+  margin-top:15px;
   text-align:center;
-  font-size:13px;
-  color:#aaa;
-  margin-top:30px;
+}
+.back button{
+  background:none;
+  border:1px solid #444;
+  color:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -64,68 +92,71 @@ h1{
 <h1>🌿 Malwa Moss</h1>
 <div class="subtitle">Fresh Veg Café</div>
 
-<div class="section">
+<!-- CATEGORY SELECTION -->
+<div class="categories" id="categories">
+  <button class="category-btn" onclick="showMenu('pizza')">🍕 Pizza</button>
+  <button class="category-btn" onclick="showMenu('momos')">🥟 Momos</button>
+  <button class="category-btn" onclick="showMenu('garlic')">🥖 Garlic Bread</button>
+  <button class="category-btn" onclick="showMenu('beverages')">☕ Beverages</button>
+</div>
+
+<!-- PIZZA -->
+<div class="section" id="pizza">
 <h2>🍕 Pizza (Medium / Large)</h2>
 <div class="menu-item"><span>Margherita Pizza</span><span class="price">₹90 / ₹130</span></div>
 <div class="menu-item"><span>Tomato Cheese Pizza</span><span class="price">₹100 / ₹150</span></div>
 <div class="menu-item"><span>Corn Cheese Pizza</span><span class="price">₹100 / ₹150</span></div>
-<div class="menu-item"><span>Onion Cheese Pizza</span><span class="price">₹110 / ₹160</span></div>
-<div class="menu-item"><span>Capsicum Cheese Pizza</span><span class="price">₹110 / ₹160</span></div>
-<div class="menu-item"><span>Veg Cheese Pizza</span><span class="price">₹120 / ₹170</span></div>
-<div class="menu-item"><span>Mushroom Cheese Pizza</span><span class="price">₹130 / ₹180</span></div>
 <div class="menu-item"><span>Paneer Cheese Pizza</span><span class="price">₹140 / ₹190</span></div>
 <div class="menu-item"><span>Farm House Pizza</span><span class="price">₹150 / ₹200</span></div>
 <div class="menu-item"><span>Volcano Pizza</span><span class="price">— / ₹250</span></div>
 <div class="note">➕ Cheese Burst: Medium ₹40 | Large ₹70</div>
+<div class="back"><button onclick="goBack()">⬅ Back</button></div>
 </div>
 
-<div class="section">
+<!-- MOMOS -->
+<div class="section" id="momos">
+<h2>🥟 Momos</h2>
+<div class="menu-item"><span>Veg Steam Momos</span><span class="price">₹40 / ₹60</span></div>
+<div class="menu-item"><span>Paneer Steam Momos</span><span class="price">₹50 / ₹80</span></div>
+<div class="menu-item"><span>Veg Fried Momos</span><span class="price">₹60 / ₹90</span></div>
+<div class="menu-item"><span>Paneer Kurkure Momos</span><span class="price">₹80 / ₹120</span></div>
+<div class="menu-item"><span>Chilli Chinese Paneer Momos</span><span class="price">₹120 / ₹160</span></div>
+<div class="menu-item"><span>Momos Platter</span><span class="price">₹150</span></div>
+<div class="back"><button onclick="goBack()">⬅ Back</button></div>
+</div>
+
+<!-- GARLIC BREAD -->
+<div class="section" id="garlic">
 <h2>🥖 Garlic Bread</h2>
 <div class="menu-item"><span>Garlic Bread Plain</span><span class="price">₹60</span></div>
 <div class="menu-item"><span>Hot & Spicy Garlic Bread</span><span class="price">₹70</span></div>
-<div class="menu-item"><span>Cheese Corn Garlic Bread</span><span class="price">₹90</span></div>
 <div class="menu-item"><span>Cheese Paneer Garlic Bread</span><span class="price">₹100</span></div>
-<div class="menu-item"><span>Mojo Special Garlic Bread</span><span class="price">₹110</span></div>
+<div class="back"><button onclick="goBack()">⬅ Back</button></div>
 </div>
 
-<div class="section">
+<!-- BEVERAGES -->
+<div class="section" id="beverages">
 <h2>☕ Beverages</h2>
 <div class="menu-item"><span>Cold Coffee</span><span class="price">₹50</span></div>
 <div class="menu-item"><span>Oreo Shake</span><span class="price">₹70</span></div>
 <div class="menu-item"><span>KitKat Shake</span><span class="price">₹70</span></div>
 <div class="menu-item"><span>Cold Drinks</span><span class="price">MRP</span></div>
-</div>
-
-<div class="section">
-<h2>🥟 Momos</h2>
-<div class="menu-item"><span>Veg Steam Momos (6/10)</span><span class="price">₹40 / ₹60</span></div>
-<div class="menu-item"><span>Paneer Steam Momos</span><span class="price">₹50 / ₹80</span></div>
-<div class="menu-item"><span>Cheese Corn Steam Momos</span><span class="price">₹60 / ₹90</span></div>
-
-<div class="menu-item"><span>Veg Fried Momos</span><span class="price">₹60 / ₹90</span></div>
-<div class="menu-item"><span>Paneer Fried Momos</span><span class="price">₹70 / ₹100</span></div>
-<div class="menu-item"><span>Cheese Corn Fried Momos</span><span class="price">₹80 / ₹110</span></div>
-
-<div class="menu-item"><span>Veg Kurkure Momos</span><span class="price">₹70 / ₹110</span></div>
-<div class="menu-item"><span>Paneer Kurkure Momos</span><span class="price">₹80 / ₹120</span></div>
-<div class="menu-item"><span>Cheese Corn Kurkure Momos</span><span class="price">₹90 / ₹130</span></div>
-
-<div class="menu-item"><span>Chilli Chinese Veg Momos</span><span class="price">₹100 / ₹150</span></div>
-<div class="menu-item"><span>Chilli Chinese Paneer Momos</span><span class="price">₹120 / ₹160</span></div>
-<div class="menu-item"><span>Chilli Chinese Cheese Momos</span><span class="price">₹120 / ₹160</span></div>
-</div>
-
-<div class="section">
-<h2>🍽️ Others</h2>
-<div class="menu-item"><span>Honey Potato</span><span class="price">₹120</span></div>
-<div class="menu-item"><span>Paneer Chilli</span><span class="price">₹150</span></div>
-<div class="menu-item"><span>Momos Platter</span><span class="price">₹150</span></div>
-</div>
-
-<div class="footer">
-Scan • Order • Enjoy 🌿
+<div class="back"><button onclick="goBack()">⬅ Back</button></div>
 </div>
 
 </div>
+
+<script>
+function showMenu(id){
+  document.getElementById('categories').style.display='none';
+  document.querySelectorAll('.section').forEach(s => s.style.display='none');
+  document.getElementById(id).style.display='block';
+}
+function goBack(){
+  document.getElementById('categories').style.display='grid';
+  document.querySelectorAll('.section').forEach(s => s.style.display='none');
+}
+</script>
+
 </body>
 </html>
