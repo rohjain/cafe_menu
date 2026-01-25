@@ -1,46 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Malwa Moss Menu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial; background:#f7f7f7; padding:20px; }
-    h1 { text-align:center; color:#2e7d32; }
-    h2 { color:#444; border-bottom:1px solid #ddd; }
-    ul { list-style:none; padding:0; }
-    li { padding:6px 0; font-size:16px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malwa Moss Menu</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#0f0f0f;
+  color:#fff;
+}
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:16px;
+}
+h1{
+  text-align:center;
+  color:#fbc02d;
+  margin-bottom:4px;
+}
+.subtitle{
+  text-align:center;
+  color:#ccc;
+  margin-bottom:20px;
+}
+.section{
+  margin-bottom:24px;
+}
+.section h2{
+  color:#fbc02d;
+  border-bottom:1px solid #333;
+  padding-bottom:6px;
+}
+.menu-item{
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  font-size:15px;
+}
+.price{
+  color:#a5d6a7;
+  white-space:nowrap;
+}
+.note{
+  font-size:13px;
+  color:#bbb;
+}
+.footer{
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-top:30px;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
 
 <h1>🌿 Malwa Moss</h1>
-<p style="text-align:center;">Fresh Veg Café</p>
+<div class="subtitle">Fresh Veg Café</div>
 
-<h2>🍕 Hand Tossed Pizza</h2>
-<ul>
-  <li>Margherita – ₹___</li>
-  <li>Farm Fresh – ₹___</li>
-</ul>
+<div class="section">
+<h2>🍕 Pizza (Medium / Large)</h2>
+<div class="menu-item"><span>Margherita Pizza</span><span class="price">₹90 / ₹130</span></div>
+<div class="menu-item"><span>Tomato Cheese Pizza</span><span class="price">₹100 / ₹150</span></div>
+<div class="menu-item"><span>Corn Cheese Pizza</span><span class="price">₹100 / ₹150</span></div>
+<div class="menu-item"><span>Onion Cheese Pizza</span><span class="price">₹110 / ₹160</span></div>
+<div class="menu-item"><span>Capsicum Cheese Pizza</span><span class="price">₹110 / ₹160</span></div>
+<div class="menu-item"><span>Veg Cheese Pizza</span><span class="price">₹120 / ₹170</span></div>
+<div class="menu-item"><span>Mushroom Cheese Pizza</span><span class="price">₹130 / ₹180</span></div>
+<div class="menu-item"><span>Paneer Cheese Pizza</span><span class="price">₹140 / ₹190</span></div>
+<div class="menu-item"><span>Farm House Pizza</span><span class="price">₹150 / ₹200</span></div>
+<div class="menu-item"><span>Volcano Pizza</span><span class="price">— / ₹250</span></div>
+<div class="note">➕ Cheese Burst: Medium ₹40 | Large ₹70</div>
+</div>
 
-<h2>🥟 Special Momos</h2>
-<ul>
-  <li>Veg Steam Momos – ₹___</li>
-  <li>Fried Momos – ₹___</li>
-</ul>
+<div class="section">
+<h2>🥖 Garlic Bread</h2>
+<div class="menu-item"><span>Garlic Bread Plain</span><span class="price">₹60</span></div>
+<div class="menu-item"><span>Hot & Spicy Garlic Bread</span><span class="price">₹70</span></div>
+<div class="menu-item"><span>Cheese Corn Garlic Bread</span><span class="price">₹90</span></div>
+<div class="menu-item"><span>Cheese Paneer Garlic Bread</span><span class="price">₹100</span></div>
+<div class="menu-item"><span>Mojo Special Garlic Bread</span><span class="price">₹110</span></div>
+</div>
 
-<h2>🍚 Veg Biryani</h2>
-<ul>
-  <li>Veg Dum Biryani – ₹___</li>
-</ul>
-
+<div class="section">
 <h2>☕ Beverages</h2>
-<ul>
-  <li>Tea / Coffee – ₹___</li>
-</ul>
+<div class="menu-item"><span>Cold Coffee</span><span class="price">₹50</span></div>
+<div class="menu-item"><span>Oreo Shake</span><span class="price">₹70</span></div>
+<div class="menu-item"><span>KitKat Shake</span><span class="price">₹70</span></div>
+<div class="menu-item"><span>Cold Drinks</span><span class="price">MRP</span></div>
+</div>
 
-<p style="text-align:center; margin-top:30px;">
-📞 Order on WhatsApp: XXXXXXXX
-</p>
+<div class="section">
+<h2>🥟 Momos</h2>
+<div class="menu-item"><span>Veg Steam Momos (6/10)</span><span class="price">₹40 / ₹60</span></div>
+<div class="menu-item"><span>Paneer Steam Momos</span><span class="price">₹50 / ₹80</span></div>
+<div class="menu-item"><span>Cheese Corn Steam Momos</span><span class="price">₹60 / ₹90</span></div>
 
+<div class="menu-item"><span>Veg Fried Momos</span><span class="price">₹60 / ₹90</span></div>
+<div class="menu-item"><span>Paneer Fried Momos</span><span class="price">₹70 / ₹100</span></div>
+<div class="menu-item"><span>Cheese Corn Fried Momos</span><span class="price">₹80 / ₹110</span></div>
+
+<div class="menu-item"><span>Veg Kurkure Momos</span><span class="price">₹70 / ₹110</span></div>
+<div class="menu-item"><span>Paneer Kurkure Momos</span><span class="price">₹80 / ₹120</span></div>
+<div class="menu-item"><span>Cheese Corn Kurkure Momos</span><span class="price">₹90 / ₹130</span></div>
+
+<div class="menu-item"><span>Chilli Chinese Veg Momos</span><span class="price">₹100 / ₹150</span></div>
+<div class="menu-item"><span>Chilli Chinese Paneer Momos</span><span class="price">₹120 / ₹160</span></div>
+<div class="menu-item"><span>Chilli Chinese Cheese Momos</span><span class="price">₹120 / ₹160</span></div>
+</div>
+
+<div class="section">
+<h2>🍽️ Others</h2>
+<div class="menu-item"><span>Honey Potato</span><span class="price">₹120</span></div>
+<div class="menu-item"><span>Paneer Chilli</span><span class="price">₹150</span></div>
+<div class="menu-item"><span>Momos Platter</span><span class="price">₹150</span></div>
+</div>
+
+<div class="footer">
+Scan • Order • Enjoy 🌿
+</div>
+
+</div>
 </body>
 </html>
