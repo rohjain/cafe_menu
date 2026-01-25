@@ -1,162 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Malwa Moss Menu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Malwa Moss Menu</title>
 
-<style>
-body{
-  margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  background:#0f0f0f;
-  color:#fff;
-}
-.container{
-  max-width:720px;
-  margin:auto;
-  padding:16px;
-}
-h1{
-  text-align:center;
-  color:#fbc02d;
-}
-.subtitle{
-  text-align:center;
-  color:#bbb;
-  margin-bottom:20px;
-}
-
-/* Category Buttons */
-.categories{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  margin-bottom:20px;
-}
-.category-btn{
-  background:#1e1e1e;
-  border:1px solid #333;
-  padding:14px;
-  font-size:16px;
-  color:#fbc02d;
-  border-radius:10px;
-  cursor:pointer;
-}
-.category-btn:hover{
-  background:#2a2a2a;
-}
-
-/* Menu Section */
-.section{
-  display:none;
-}
-.section h2{
-  color:#fbc02d;
-  border-bottom:1px solid #333;
-  padding-bottom:6px;
-}
-.menu-item{
-  display:flex;
-  justify-content:space-between;
-  padding:8px 0;
-  font-size:15px;
-}
-.price{
-  color:#a5d6a7;
-  white-space:nowrap;
-}
-.note{
-  font-size:13px;
-  color:#bbb;
-  margin-top:8px;
-}
-.back{
-  margin-top:15px;
-  text-align:center;
-}
-.back button{
-  background:none;
-  border:1px solid #444;
-  color:#fff;
-  padding:8px 14px;
-  border-radius:8px;
-  cursor:pointer;
-}
-</style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <div class="container">
 
-<h1>🌿 Malwa Moss</h1>
-<div class="subtitle">Fresh Veg Café</div>
+  <h1>🌿 Malwa Moss</h1>
+  <p class="subtitle">Fresh Veg Café • Pizza • Momos • Shakes</p>
 
-<!-- CATEGORY SELECTION -->
-<div class="categories" id="categories">
-  <button class="category-btn" onclick="showMenu('pizza')">🍕 Pizza</button>
-  <button class="category-btn" onclick="showMenu('momos')">🥟 Momos</button>
-  <button class="category-btn" onclick="showMenu('garlic')">🥖 Garlic Bread</button>
-  <button class="category-btn" onclick="showMenu('beverages')">☕ Beverages</button>
+  <!-- MAIN CATEGORIES -->
+  <div class="categories" id="categories">
+    <button onclick="showMenu('pizza')">🍕 Pizza</button>
+    <button onclick="showMenu('momos')">🥟 Momos</button>
+    <button onclick="showMenu('garlic')">🥖 Garlic Bread</button>
+    <button onclick="showMenu('beverages')">☕ Beverages</button>
+  </div>
+
+  <!-- ================= PIZZA ================= -->
+  <section id="pizza" class="menu-section">
+    <h2>🍕 Pizza</h2>
+
+    <div class="menu-card">
+      <div class="size-header"><span></span><span>Medium</span><span>Large</span></div>
+
+      <div class="menu-row"><span>Margherita</span><span>₹90</span><span>₹130</span></div>
+      <div class="menu-row"><span>Tomato Cheese</span><span>₹100</span><span>₹150</span></div>
+      <div class="menu-row"><span>Corn Cheese</span><span>₹100</span><span>₹150</span></div>
+      <div class="menu-row"><span>Onion Cheese</span><span>₹110</span><span>₹160</span></div>
+      <div class="menu-row"><span>Capsicum Cheese</span><span>₹110</span><span>₹160</span></div>
+      <div class="menu-row"><span>Veg Cheese</span><span>₹120</span><span>₹170</span></div>
+      <div class="menu-row"><span>Mushroom Cheese</span><span>₹130</span><span>₹180</span></div>
+      <div class="menu-row"><span>Paneer Cheese</span><span>₹140</span><span>₹190</span></div>
+      <div class="menu-row"><span>Farm House</span><span>₹150</span><span>₹200</span></div>
+      <div class="menu-row"><span>Volcano Pizza</span><span>—</span><span>₹250</span></div>
+
+      <p class="note">➕ Cheese Burst: Medium ₹40 | Large ₹70</p>
+    </div>
+
+    <button class="back" onclick="goBack()">⬅ Back</button>
+  </section>
+
+  <!-- ================= MOMOS ================= -->
+  <section id="momos" class="menu-section">
+    <h2>🥟 Momos</h2>
+
+    <h3>🔥 Steam Momos</h3>
+    <div class="menu-card">
+      <div class="size-header"><span></span><span>Half</span><span>Full</span></div>
+      <div class="menu-row"><span>Veg Steam</span><span>₹40</span><span>₹60</span></div>
+      <div class="menu-row"><span>Paneer Steam</span><span>₹50</span><span>₹80</span></div>
+      <div class="menu-row"><span>Cheese Corn Steam</span><span>₹60</span><span>₹90</span></div>
+    </div>
+
+    <h3>🍳 Fried Momos</h3>
+    <div class="menu-card">
+      <div class="menu-row"><span>Veg Fried</span><span>₹60</span><span>₹90</span></div>
+      <div class="menu-row"><span>Paneer Fried</span><span>₹70</span><span>₹100</span></div>
+      <div class="menu-row"><span>Cheese Corn Fried</span><span>₹80</span><span>₹110</span></div>
+    </div>
+
+    <h3>😋 Kurkure Momos</h3>
+    <div class="menu-card">
+      <div class="menu-row"><span>Veg Kurkure</span><span>₹70</span><span>₹110</span></div>
+      <div class="menu-row"><span>Paneer Kurkure</span><span>₹80</span><span>₹120</span></div>
+      <div class="menu-row"><span>Cheese Corn Kurkure</span><span>₹90</span><span>₹130</span></div>
+    </div>
+
+    <h3>🌶️ Chilli Chinese</h3>
+    <div class="menu-card">
+      <div class="menu-row"><span>Veg Chilli Momos</span><span>₹100</span><span>₹150</span></div>
+      <div class="menu-row"><span>Paneer Chilli Momos</span><span>₹120</span><span>₹160</span></div>
+      <div class="menu-row"><span>Cheese Chilli Momos</span><span>₹120</span><span>₹160</span></div>
+    </div>
+
+    <h3>🍽️ Platter</h3>
+    <div class="menu-card single">
+      <div class="menu-row"><span>Momos Platter</span><span>₹150</span></div>
+    </div>
+
+    <button class="back" onclick="goBack()">⬅ Back</button>
+  </section>
+
+  <!-- ================= GARLIC BREAD ================= -->
+  <section id="garlic" class="menu-section">
+    <h2>🥖 Garlic Bread</h2>
+    <div class="menu-card single">
+      <div class="menu-row"><span>Garlic Bread Plain</span><span>₹60</span></div>
+      <div class="menu-row"><span>Hot & Spicy</span><span>₹70</span></div>
+      <div class="menu-row"><span>Cheese Corn</span><span>₹90</span></div>
+      <div class="menu-row"><span>Cheese Paneer</span><span>₹100</span></div>
+      <div class="menu-row"><span>Mojo Special</span><span>₹110</span></div>
+    </div>
+    <button class="back" onclick="goBack()">⬅ Back</button>
+  </section>
+
+  <!-- ================= BEVERAGES ================= -->
+  <section id="beverages" class="menu-section">
+    <h2>☕ Beverages</h2>
+    <div class="menu-card single">
+      <div class="menu-row"><span>Cold Coffee</span><span>₹50</span></div>
+      <div class="menu-row"><span>Oreo Shake</span><span>₹70</span></div>
+      <div class="menu-row"><span>KitKat Shake</span><span>₹70</span></div>
+      <div class="menu-row"><span>Cold Drinks</span><span>MRP</span></div>
+    </div>
+    <button class="back" onclick="goBack()">⬅ Back</button>
+  </section>
+
 </div>
 
-<!-- PIZZA -->
-<div class="section" id="pizza">
-<h2>🍕 Pizza (Medium / Large)</h2>
-<div class="menu-item"><span>Margherita Pizza</span><span class="price">₹90 / ₹130</span></div>
-<div class="menu-item"><span>Tomato Cheese Pizza</span><span class="price">₹100 / ₹150</span></div>
-<div class="menu-item"><span>Corn Cheese Pizza</span><span class="price">₹100 / ₹150</span></div>
-<div class="menu-item"><span>Paneer Cheese Pizza</span><span class="price">₹140 / ₹190</span></div>
-<div class="menu-item"><span>Farm House Pizza</span><span class="price">₹150 / ₹200</span></div>
-<div class="menu-item"><span>Volcano Pizza</span><span class="price">— / ₹250</span></div>
-<div class="note">➕ Cheese Burst: Medium ₹40 | Large ₹70</div>
-<div class="back"><button onclick="goBack()">⬅ Back</button></div>
-</div>
-
-<!-- MOMOS -->
-<div class="section" id="momos">
-<h2>🥟 Momos</h2>
-<div class="menu-item"><span>Veg Steam Momos</span><span class="price">₹40 / ₹60</span></div>
-<div class="menu-item"><span>Paneer Steam Momos</span><span class="price">₹50 / ₹80</span></div>
-<div class="menu-item"><span>Veg Fried Momos</span><span class="price">₹60 / ₹90</span></div>
-<div class="menu-item"><span>Paneer Kurkure Momos</span><span class="price">₹80 / ₹120</span></div>
-<div class="menu-item"><span>Chilli Chinese Paneer Momos</span><span class="price">₹120 / ₹160</span></div>
-<div class="menu-item"><span>Momos Platter</span><span class="price">₹150</span></div>
-<div class="back"><button onclick="goBack()">⬅ Back</button></div>
-</div>
-
-<!-- GARLIC BREAD -->
-<div class="section" id="garlic">
-<h2>🥖 Garlic Bread</h2>
-<div class="menu-item"><span>Garlic Bread Plain</span><span class="price">₹60</span></div>
-<div class="menu-item"><span>Hot & Spicy Garlic Bread</span><span class="price">₹70</span></div>
-<div class="menu-item"><span>Cheese Paneer Garlic Bread</span><span class="price">₹100</span></div>
-<div class="back"><button onclick="goBack()">⬅ Back</button></div>
-</div>
-
-<!-- BEVERAGES -->
-<div class="section" id="beverages">
-<h2>☕ Beverages</h2>
-<div class="menu-item"><span>Cold Coffee</span><span class="price">₹50</span></div>
-<div class="menu-item"><span>Oreo Shake</span><span class="price">₹70</span></div>
-<div class="menu-item"><span>KitKat Shake</span><span class="price">₹70</span></div>
-<div class="menu-item"><span>Cold Drinks</span><span class="price">MRP</span></div>
-<div class="back"><button onclick="goBack()">⬅ Back</button></div>
-</div>
-
-</div>
-
-<script>
-function showMenu(id){
-  document.getElementById('categories').style.display='none';
-  document.querySelectorAll('.section').forEach(s => s.style.display='none');
-  document.getElementById(id).style.display='block';
-}
-function goBack(){
-  document.getElementById('categories').style.display='grid';
-  document.querySelectorAll('.section').forEach(s => s.style.display='none');
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
