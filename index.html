@@ -28,20 +28,27 @@
     </header>
 
     <!-- Category Navigation Bar -->
-    <nav class="category-nav">
-      <button class="nav-btn active" data-category="all">All Items</button>
-      <button class="nav-btn" data-category="momos">Momos</button>
-      <button class="nav-btn" data-category="pizza">Pizza</button>
-      <button class="nav-btn" data-category="volcano">Volcano Pizza</button>
-      <button class="nav-btn" data-category="garlic">Garlic Bread</button>
-      <button class="nav-btn" data-category="chinese">Chinese</button>
-      <button class="nav-btn" data-category="rice">Rice</button>
-      <button class="nav-btn" data-category="chilly-momos">Chilly Momos</button>
-      <button class="nav-btn" data-category="mocktail">Mocktails</button>
-      <button class="nav-btn" data-category="burger">Burger & Fries</button>
-      <button class="nav-btn" data-category="milkshake">Milkshakes</button>
-      <button class="nav-btn" data-category="maggi">Maggi</button>
-    </nav>
+    <div class="nav-wrapper" id="navWrapper">
+      <button class="nav-toggle-pill" id="navToggle" aria-label="Toggle Menu Navigation">
+        <span class="pill-icon">☰</span>
+        <span class="pill-text">Categories</span>
+        <span class="pill-arrow" id="pillArrow">▲</span>
+      </button>
+      <nav class="category-nav" id="categoryNav">
+        <button class="nav-btn active" data-category="all">All Items</button>
+        <button class="nav-btn" data-category="momos">Momos</button>
+        <button class="nav-btn" data-category="pizza">Pizza</button>
+        <button class="nav-btn" data-category="volcano">Volcano Pizza</button>
+        <button class="nav-btn" data-category="garlic">Garlic Bread</button>
+        <button class="nav-btn" data-category="chinese">Chinese</button>
+        <button class="nav-btn" data-category="rice">Rice</button>
+        <button class="nav-btn" data-category="chilly-momos">Chilly Momos</button>
+        <button class="nav-btn" data-category="mocktail">Mocktails</button>
+        <button class="nav-btn" data-category="burger">Burger &amp; Fries</button>
+        <button class="nav-btn" data-category="milkshake">Milkshakes</button>
+        <button class="nav-btn" data-category="maggi">Maggi</button>
+      </nav>
+    </div>
 
     <!-- MENU GRID -->
     <div class="categories-grid">
