@@ -15,77 +15,222 @@
 
   <div class="menu-container">
     <!-- Floating plates matching the reference design -->
-    <img src="assets/pizza.png" class="floating-plate plate-left" alt="Pizza Plate">
+    <img src="assets/farmhouse_pizza.png" class="floating-plate plate-left" alt="Farm House Pizza">
     <img src="assets/momos.png" class="floating-plate plate-right" alt="Momos Plate">
     
     <header class="menu-header">
       <div class="header-center">
-        <div class="cafe-name-wood">HUB & GRUB</div>
-        <h1>MENU</h1>
+        <img src="assets/logo_transparent.png" alt="Hub & Grub Logo" class="main-logo">
+        <div class="cafe-name-wood" style="display: none;">HUB & GRUB</div>
+        <h1 style="margin-top: 10px;">MENU</h1>
         <div class="tagline-wood">The best cafe in town!</div>
       </div>
     </header>
 
+    <!-- Category Navigation Bar -->
+    <nav class="category-nav">
+      <button class="nav-btn active" data-category="all">All Items</button>
+      <button class="nav-btn" data-category="momos">Momos</button>
+      <button class="nav-btn" data-category="pizza">Pizza</button>
+      <button class="nav-btn" data-category="volcano">Volcano Pizza</button>
+      <button class="nav-btn" data-category="garlic">Garlic Bread</button>
+      <button class="nav-btn" data-category="chinese">Chinese</button>
+      <button class="nav-btn" data-category="rice">Rice</button>
+      <button class="nav-btn" data-category="chilly-momos">Chilly Momos</button>
+      <button class="nav-btn" data-category="mocktail">Mocktails</button>
+      <button class="nav-btn" data-category="burger">Burger & Fries</button>
+      <button class="nav-btn" data-category="milkshake">Milkshakes</button>
+      <button class="nav-btn" data-category="maggi">Maggi</button>
+    </nav>
+
     <!-- MENU GRID -->
     <div class="categories-grid">
+      <!-- Momos Category -->
+      <section class="menu-column" data-category="momos">
+        <h2 class="wood-title"><span class="cursive">Momos</span></h2>
+        
+        <!-- Innovative Portion Legend -->
+        <div class="momo-portion-legend">
+          <div class="portion-item">
+            <div class="portion-plate half">
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+            </div>
+            <div class="portion-label">HALF <span class="portion-count">06 PCS</span></div>
+          </div>
+          <div class="portion-item">
+            <div class="portion-plate full">
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+              <div class="momo-dot"></div>
+            </div>
+            <div class="portion-label">FULL <span class="portion-count">10 PCS</span></div>
+          </div>
+        </div>
+
+        <h3 class="momo-sub-title">Steam</h3>
+        <div class="menu-items">
+          <div class="item-header price-legend"><span></span><div class="price-cols"><span>Half</span><span>Full</span></div></div>
+          <div class="item"><div class="item-header"><span>Veg Steam</span><div class="price price-cols"><span>50</span><span>80</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Steam</span><div class="price price-cols"><span>60</span><span>100</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Veg Cheese Steam</span><div class="price price-cols"><span>60</span><span>100</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Corn Cheese Steam</span><div class="price price-cols"><span>70</span><span>110</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Cheese Steam</span><div class="price price-cols"><span>70</span><span>110</span></div></div></div>
+        </div>
+
+        <h3 class="momo-sub-title" style="margin-top: 25px;">Fried</h3>
+        <div class="menu-items">
+          <div class="item"><div class="item-header"><span>Veg Fried</span><div class="price price-cols"><span>60</span><span>90</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Fried</span><div class="price price-cols"><span>70</span><span>110</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Veg Cheese Fried</span><div class="price price-cols"><span>70</span><span>110</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Corn Cheese Fried</span><div class="price price-cols"><span>80</span><span>120</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Cheese Fried</span><div class="price price-cols"><span>80</span><span>120</span></div></div></div>
+        </div>
+
+        <h3 class="momo-sub-title" style="margin-top: 25px;">Kurkure</h3>
+        <div class="menu-items">
+          <div class="item"><div class="item-header"><span>Veg Kurkure</span><div class="price price-cols"><span>80</span><span>110</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Kurkure</span><div class="price price-cols"><span>90</span><span>130</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Veg Cheese Kurkure</span><div class="price price-cols"><span>90</span><span>130</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Corn Cheese Kurkure</span><div class="price price-cols"><span>100</span><span>140</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Cheese Kurkure</span><div class="price price-cols"><span>100</span><span>140</span></div></div></div>
+        </div>
+      </section>
+
+      <!-- Pizza Category -->
+      <section class="menu-column" data-category="pizza">
+        <h2 class="wood-title"><span class="cursive">Pizza</span></h2>
+        <div class="specialty-section">
+          <video src="assets/Fresh_Dough_Animation_Video_Ready.mp4" class="dough-video" autoplay loop muted playsinline></video>
+          <div class="specialty-badge">✨ 100% Fresh & Handmade Dough ✨</div>
+        </div>
+        <div class="menu-items">
+          <div class="item-header price-legend"><span></span><div class="price-cols"><span>6"</span><span>9"</span><span>12"</span></div></div>
+          <div class="item"><div class="item-header"><span>Margherita Pizza</span><div class="price price-cols"><span>100</span><span>150</span><span>200</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Tomato Pizza</span><div class="price price-cols"><span>110</span><span>170</span><span>220</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Onion Pizza</span><div class="price price-cols"><span>110</span><span>170</span><span>220</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Corn Cheese Pizza</span><div class="price price-cols"><span>120</span><span>180</span><span>230</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Veg Cheese Pizza</span><div class="price price-cols"><span>140</span><span>190</span><span>250</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Mushroom Pizza</span><div class="price price-cols"><span>140</span><span>190</span><span>250</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Cheese Pizza</span><div class="price price-cols"><span>150</span><span>200</span><span>260</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Makhni Pizza</span><div class="price price-cols"><span>160</span><span>220</span><span>280</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Farm House Pizza</span><div class="price price-cols"><span>170</span><span>240</span><span>300</span></div></div></div>
+          <div class="item"><div class="item-header"><span>ADD ON: CHEESE</span><div class="price price-cols"><span>50</span><span>100</span><span></span></div></div></div>
+        </div>
+      </section>
+
+      <!-- Volcano Pizza -->
+      <section class="menu-column" data-category="volcano">
+        <h2 class="wood-title"><span class="cursive">Volcano Pizza</span></h2>
+        <div class="specialty-section">
+          <video src="assets/Fresh_Dough_Animation_Video_Ready.mp4" class="dough-video" autoplay loop muted playsinline></video>
+          <div class="specialty-badge">✨ 100% Fresh & Handmade Dough ✨</div>
+        </div>
+        <div class="menu-items">
+          <div class="item"><div class="item-header"><span>Cheese Corn Volcano Pizza</span><span class="price">300</span></div></div>
+          <div class="item"><div class="item-header"><span>Onion Tomato Volcano Pizza</span><span class="price">310</span></div></div>
+          <div class="item"><div class="item-header"><span>Onion Capsicum Volcano Pizza</span><span class="price">310</span></div></div>
+          <div class="item"><div class="item-header"><span>Veg Volcano Pizza</span><span class="price">320</span></div></div>
+          <div class="item"><div class="item-header"><span>Volcano Pizza</span><span class="price">330</span></div></div>
+        </div>
+      </section>
+
+      <!-- Garlic Bread -->
+      <section class="menu-column" data-category="garlic">
+        <h2 class="wood-title"><span class="cursive">Garlic Bread</span></h2>
+        <div class="menu-items">
+          <div class="item"><div class="item-header"><span>Garlic Bread classic</span><span class="price">80</span></div></div>
+          <div class="item"><div class="item-header"><span>Cheese Garlic Bread</span><span class="price">90</span></div></div>
+          <div class="item"><div class="item-header"><span>Hot & Spicy Garlic Bread</span><span class="price">90</span></div></div>
+          <div class="item"><div class="item-header"><span>Cheese Corn Garlic Bread</span><span class="price">100</span></div></div>
+          <div class="item"><div class="item-header"><span>Cheese Paneer Garlic Bread</span><span class="price">120</span></div></div>
+          <div class="item"><div class="item-header"><span>H&G Special Garlic Bread</span><span class="price">150</span></div></div>
+        </div>
+      </section>
+
       <!-- Chinese Category -->
-      <section class="menu-column">
+      <section class="menu-column" data-category="chinese">
         <h2 class="wood-title"><span class="cursive">Chinese</span></h2>
         <div class="menu-items">
           <div class="item"><div class="item-header"><span>Veg Noodles</span><span class="price">90</span></div></div>
           <div class="item"><div class="item-header"><span>Manchurian Noodles</span><span class="price">100</span></div></div>
-          <div class="item"><div class="item-header"><span>Halka Noodles</span><span class="price">100</span></div></div>
-          <div class="item"><div class="item-header"><span>Schewan Noodles</span><span class="price">110</span></div></div>
+          <div class="item"><div class="item-header"><span>Hakka Noodles</span><span class="price">100</span></div></div>
+          <div class="item"><div class="item-header"><span>Schezwan Noodles</span><span class="price">110</span></div></div>
           <div class="item"><div class="item-header"><span>Crispy Noodles</span><span class="price">110</span></div></div>
           <div class="item"><div class="item-header"><span>Mushroom Noodles</span><span class="price">120</span></div></div>
           <div class="item"><div class="item-header"><span>Garlic Noodles</span><span class="price">120</span></div></div>
-          <div class="item"><div class="item-header"><span>Singapori Noodles</span><span class="price">140</span></div></div>
+          <div class="item"><div class="item-header"><span>Singapore Noodles</span><span class="price">140</span></div></div>
           
           <div class="item-header price-legend" style="margin-top: 15px;"><span></span><div class="price-cols"><span>Dry</span><span>Gravy</span></div></div>
           <div class="item"><div class="item-header"><span>Manchurian</span><div class="price price-cols"><span>90</span><span>100</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Chilly</span><div class="price price-cols"><span>160</span><span>170</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Mashroom Chilly</span><div class="price price-cols"><span>180</span><span>200</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Honey Chilly Potato</span><div class="price price-cols"><span>130</span><span>150</span></div></div></div>
           <div class="item"><div class="item-header"><span>Chilly Potato</span><div class="price price-cols"><span>120</span><span>140</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Honey Chilly Potato</span><div class="price price-cols"><span>130</span><span>150</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Chilly</span><div class="price price-cols"><span>160</span><span>170</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Mushroom Chilly</span><div class="price price-cols"><span>180</span><span>200</span></div></div></div>
         </div>
       </section>
 
       <!-- Rice Category -->
-      <section class="menu-column">
+      <section class="menu-column" data-category="rice">
         <h2 class="wood-title"><span class="cursive">Rice</span></h2>
         <div class="menu-items">
           <div class="item"><div class="item-header"><span>Veg Fried Rice</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Manchurian Rice</span><span class="price">120</span></div></div>
-          <div class="item"><div class="item-header"><span>Triple Fried Rice</span><span class="price">150</span></div></div>
-        </div>
-        
-        <h2 class="wood-title" style="margin-top: 30px;"><span class="cursive">Chilly Chinese</span></h2>
-        <div class="menu-items">
-          <div class="item-header price-legend"><span></span><div class="price-cols"><span>Half</span><span>Full</span></div></div>
-          <div class="item"><div class="item-header"><span>Veg Chilly Chinese</span><div class="price price-cols"><span>110</span><span>160</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Chilly Chinese</span><div class="price price-cols"><span>120</span><span>180</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Corn Chilly Chinese</span><div class="price price-cols"><span>120</span><span>190</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Veg Cheese Chilly Chinese</span><div class="price price-cols"><span>120</span><span>180</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Cheese Chilly Chinese</span><div class="price price-cols"><span>130</span><span>190</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Manchurian Rice</span><div class="price">120</div></div></div>
+          <div class="item"><div class="item-header"><span>Triple Fried Rice</span><div class="price">150</div></div></div>
         </div>
       </section>
 
-      <!-- Mojito Category -->
-      <section class="menu-column">
+      <!-- Chilly Momos Section -->
+      <section class="menu-column" data-category="chilly-momos">
+        <h2 class="wood-title"><span class="cursive">Chilly Chinese Momos</span></h2>
+        
+        <!-- Innovative Portion Legend -->
+        <div class="momo-portion-legend">
+          <div class="portion-item">
+            <div class="portion-plate half">
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+            </div>
+            <div class="portion-label">HALF <span class="portion-count">06 PCS</span></div>
+          </div>
+          <div class="portion-item">
+            <div class="portion-plate full">
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+              <div class="momo-dot"></div><div class="momo-dot"></div><div class="momo-dot"></div>
+              <div class="momo-dot"></div>
+            </div>
+            <div class="portion-label">FULL <span class="portion-count">10 PCS</span></div>
+          </div>
+        </div>
+
+        <div class="menu-items">
+          <div class="item-header price-legend"><span></span><div class="price-cols"><span>Half</span><span>Full</span></div></div>
+          <div class="item"><div class="item-header"><span>Veg Chilly Chinese Momos</span><div class="price price-cols"><span>110</span><span>160</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Chilly Chinese Momos</span><div class="price price-cols"><span>120</span><span>180</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Corn Chilly Chinese Momos</span><div class="price price-cols"><span>120</span><span>190</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Veg Cheese Chilly Chinese Momos</span><div class="price price-cols"><span>120</span><span>180</span></div></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Cheese Chilly Chinese Momos</span><div class="price price-cols"><span>130</span><span>190</span></div></div></div>
+        </div>
+      </section>
+
+      <!-- Mocktail Category -->
+      <section class="menu-column" data-category="mocktail">
         <h2 class="wood-title"><span class="cursive">Mocktail</span></h2>
         <div class="menu-items">
           <div class="item"><div class="item-header"><span>Mint Mojito</span><span class="price">80</span></div></div>
           <div class="item"><div class="item-header"><span>Peach Tea</span><span class="price">90</span></div></div>
           <div class="item"><div class="item-header"><span>Watermelon</span><span class="price">90</span></div></div>
           <div class="item"><div class="item-header"><span>Lemo Ice Tea</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Spicy Lemoned</span><span class="price">100</span></div></div>
+          <div class="item"><div class="item-header"><span>Spicy Lemonade</span><span class="price">100</span></div></div>
           <div class="item"><div class="item-header"><span>Blue Curacao</span><span class="price">110</span></div></div>
           <div class="item"><div class="item-header"><span>Green Apple</span><span class="price">120</span></div></div>
         </div>
       </section>
 
-      <!-- Burger Category -->
-      <section class="menu-column">
+      <!-- Burger & Fries Category -->
+      <section class="menu-column" data-category="burger">
         <h2 class="wood-title"><span class="cursive">Burger</span></h2>
         <div class="menu-items">
           <div class="item"><div class="item-header"><span>Veg Tikki Burger</span><span class="price">60</span></div></div>
@@ -96,31 +241,31 @@
 
         <h2 class="wood-title" style="margin-top: 30px;"><span class="cursive">Fries</span></h2>
         <div class="menu-items">
-          <div class="item"><div class="item-header"><span>Plan Salted Fries</span><span class="price">60</span></div></div>
-          <div class="item"><div class="item-header"><span>Peri peri Fries</span><span class="price">80</span></div></div>
+          <div class="item"><div class="item-header"><span>Plain Salted Fries</span><span class="price">60</span></div></div>
+          <div class="item"><div class="item-header"><span>Peri Peri Fries</span><span class="price">80</span></div></div>
           <div class="item"><div class="item-header"><span>Cheese Fries</span><span class="price">100</span></div></div>
         </div>
       </section>
 
-      <!-- Shake Category -->
-      <section class="menu-column">
-        <h2 class="wood-title"><span class="cursive">Shake</span></h2>
+      <!-- Milkshake Category -->
+      <section class="menu-column" data-category="milkshake">
+        <h2 class="wood-title"><span class="cursive">Milkshake</span></h2>
         <div class="menu-items">
           <div class="item"><div class="item-header"><span>Cold Coffee</span><span class="price">70</span></div></div>
-          <div class="item"><div class="item-header"><span>Oreo Shake</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Kitkat Shake</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Tirasuma Shake</span><span class="price">120</span></div></div>
-          <div class="item"><div class="item-header"><span>Mango Shake</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Orange Shake</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Litchi Shake</span><span class="price">100</span></div></div>
-          <div class="item"><div class="item-header"><span>BlueBerry Shake</span><span class="price">120</span></div></div>
-          <div class="item"><div class="item-header"><span>BlackCurrant Shake</span><span class="price">110</span></div></div>
-          <div class="item"><div class="item-header"><span>Strawberry Shake</span><span class="price">110</span></div></div>
+          <div class="item"><div class="item-header"><span>Oreo Milkshake</span><span class="price">90</span></div></div>
+          <div class="item"><div class="item-header"><span>Kitkat Milkshake</span><span class="price">90</span></div></div>
+          <div class="item"><div class="item-header"><span>Mango Milkshake</span><span class="price">90</span></div></div>
+          <div class="item"><div class="item-header"><span>Orange Milkshake</span><span class="price">90</span></div></div>
+          <div class="item"><div class="item-header"><span>Lychee Milkshake</span><span class="price">100</span></div></div>
+          <div class="item"><div class="item-header"><span>BlackCurrant Milkshake</span><span class="price">110</span></div></div>
+          <div class="item"><div class="item-header"><span>Strawberry Milkshake</span><span class="price">110</span></div></div>
+          <div class="item"><div class="item-header"><span>Tiramisu Milkshake</span><span class="price">120</span></div></div>
+          <div class="item"><div class="item-header"><span>BlueBerry Milkshake</span><span class="price">120</span></div></div>
         </div>
       </section>
 
       <!-- Maggi Category -->
-      <section class="menu-column">
+      <section class="menu-column" data-category="maggi">
         <h2 class="wood-title"><span class="cursive">Maggi</span></h2>
         <div class="menu-items">
           <div class="item"><div class="item-header"><span>Plain Maggi</span><span class="price">60</span></div></div>
@@ -128,80 +273,17 @@
           <div class="item"><div class="item-header"><span>Veg Corn Maggi</span><span class="price">80</span></div></div>
           <div class="item"><div class="item-header"><span>Plain Cheese Maggi</span><span class="price">80</span></div></div>
           <div class="item"><div class="item-header"><span>Corn Cheese Maggi</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Tandori Maggi</span><span class="price">100</span></div></div>
+          <div class="item"><div class="item-header"><span>Paneer Tandoori Maggi</span><span class="price">100</span></div></div>
           <div class="item"><div class="item-header"><span>Punjabi Tadka Maggi</span><span class="price">100</span></div></div>
-          <div class="item"><div class="item-header"><span>Alfrado Maggi</span><span class="price">120</span></div></div>
+          <div class="item"><div class="item-header"><span>Alfredo Maggi</span><span class="price">120</span></div></div>
           <div class="item"><div class="item-header"><span>Classic Delight Maggi</span><span class="price">140</span></div></div>
-        </div>
-      </section>
-
-      <!-- Momos Category -->
-      <section class="menu-column">
-        <h2 class="wood-title"><span class="cursive">Momos</span></h2>
-        <div class="menu-items">
-          <div class="item-header price-legend"><span></span><div class="price-cols"><span>Half</span><span>Full</span></div></div>
-          <div class="item"><div class="item-header"><span>Veg Steam</span><div class="price price-cols"><span>50</span><span>80</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Panner Steam</span><div class="price price-cols"><span>60</span><span>100</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Veg Cheese Steam</span><div class="price price-cols"><span>60</span><span>100</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Corn Cheese Steam</span><div class="price price-cols"><span>70</span><span>110</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Cheese Steam</span><div class="price price-cols"><span>70</span><span>110</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Veg Fried</span><div class="price price-cols"><span>60</span><span>90</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Panner Fried</span><div class="price price-cols"><span>70</span><span>110</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Veg Cheese Fried</span><div class="price price-cols"><span>70</span><span>110</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Corn Cheese Fried</span><div class="price price-cols"><span>80</span><span>120</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Cheese Fried</span><div class="price price-cols"><span>80</span><span>120</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Veg Kurkure</span><div class="price price-cols"><span>80</span><span>110</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Panner Kurkure</span><div class="price price-cols"><span>90</span><span>130</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Veg Cheese Kurkure</span><div class="price price-cols"><span>90</span><span>130</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Corn Cheese Kurkure</span><div class="price price-cols"><span>100</span><span>140</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Cheese Kurkure</span><div class="price price-cols"><span>100</span><span>140</span></div></div></div>
-        </div>
-      </section>
-
-      <!-- Pizza Category -->
-      <section class="menu-column">
-        <h2 class="wood-title"><span class="cursive">Pizza</span></h2>
-        <div class="menu-items">
-          <div class="item-header price-legend"><span></span><div class="price-cols"><span>6"</span><span>9"</span><span>12"</span></div></div>
-          <div class="item"><div class="item-header"><span>Margerita Pizza</span><div class="price price-cols"><span>100</span><span>150</span><span>200</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Tomato Pizza</span><div class="price price-cols"><span>110</span><span>170</span><span>220</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Onion Pizza</span><div class="price price-cols"><span>110</span><span>170</span><span>220</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Corn Cheese Pizza</span><div class="price price-cols"><span>120</span><span>180</span><span>230</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Veg Cheese Pizza</span><div class="price price-cols"><span>140</span><span>190</span><span>250</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Mashroom Pizza</span><div class="price price-cols"><span>140</span><span>190</span><span>250</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Cheese Pizza</span><div class="price price-cols"><span>150</span><span>200</span><span>260</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Paneer Makhni Pizza</span><div class="price price-cols"><span>160</span><span>220</span><span>280</span></div></div></div>
-          <div class="item"><div class="item-header"><span>Farm House Pizza</span><div class="price price-cols"><span>170</span><span>240</span><span>300</span></div></div></div>
-          <div class="item"><div class="item-header"><span>ADD ON: CHEESE</span><div class="price price-cols"><span>50</span><span>100</span><span></span></div></div></div>
-        </div>
-      </section>
-
-      <!-- Garlic Bread & Volcano Pizza -->
-      <section class="menu-column">
-        <h2 class="wood-title"><span class="cursive">Garlic Bread</span></h2>
-        <div class="menu-items">
-          <div class="item"><div class="item-header"><span>Garlic Bread classic</span><span class="price">80</span></div></div>
-          <div class="item"><div class="item-header"><span>Cheese Garlic Bread</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Hot & Spicy Garlic Bread</span><span class="price">90</span></div></div>
-          <div class="item"><div class="item-header"><span>Cheese Corn Garlic Bread</span><span class="price">100</span></div></div>
-          <div class="item"><div class="item-header"><span>Cheese Paneer Garlic Bread</span><span class="price">120</span></div></div>
-          <div class="item"><div class="item-header"><span>H&B Special Garlic Bread</span><span class="price">150</span></div></div>
-        </div>
-
-        <h2 class="wood-title" style="margin-top: 30px;"><span class="cursive">Volcano Pizza</span></h2>
-        <div class="menu-items">
-          <div class="item"><div class="item-header"><span>Cheese Corn Volcano Pizza</span><span class="price">300</span></div></div>
-          <div class="item"><div class="item-header"><span>Onion Tomato Volcano Pizza</span><span class="price">310</span></div></div>
-          <div class="item"><div class="item-header"><span>Onion Capsicum Volcano Pizza</span><span class="price">310</span></div></div>
-          <div class="item"><div class="item-header"><span>Veg Volcano Pizza</span><span class="price">320</span></div></div>
-          <div class="item"><div class="item-header"><span>Volacno Pizza</span><span class="price">330</span></div></div>
         </div>
       </section>
     </div>
 
     <footer>
       <div class="footer-wood">
-        PHONE: 8602686647, 9644565096 | Semnary Road, Near Gentanjali Garden, Ashta
+        PHONE: <a href="tel:8602686647" class="phone-link">8602686647</a>, <a href="tel:9644565096" class="phone-link">9644565096</a> | Seminary Road, Near Gitanjali Garden, Ashta
       </div>
     </footer>
 
