@@ -490,6 +490,17 @@ body {
   border-radius: 10px;
 }
 
+/* Green Highlight for Add-ons */
+.green-highlight .item-header span:first-child,
+.green-highlight .item-header .price.price-cols span {
+  color: #4cd137 !important;
+  text-shadow: 0 0 10px rgba(76, 209, 55, 0.4);
+}
+
+.green-highlight .item-header::after {
+  border-bottom: 2px dotted rgba(76, 209, 55, 0.4);
+}
+
 /* Item Listing */
 .menu-items {
   text-align: left;

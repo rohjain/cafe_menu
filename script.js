@@ -37,26 +37,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ─── Auto-collapse on scroll; only auto-expand at the very top ───
-    let lastScrollY = window.scrollY;
+    // ─── Collapse when nav reaches top of screen (goes sticky) ───
+    // Measure the nav's natural position after page renders
+    let navNaturalTop = navWrapper.getBoundingClientRect().top + window.scrollY;
+
+    // Re-measure if window resizes (header might reflow)
+    window.addEventListener('resize', () => {
+        // Temporarily un-stick to get true natural position
+        navWrapper.style.position = 'relative';
+        navNaturalTop = navWrapper.getBoundingClientRect().top + window.scrollY;
+        navWrapper.style.position = '';
+    });
 
     window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        const scrolledDown = currentScrollY > lastScrollY;
+        if (manualOverride) return;
 
-        if (!manualOverride) {
-            // Auto-collapse going down past 80px
-            if (scrolledDown && currentScrollY > 80 && navExpanded) {
-                closeNav();
-            }
-            // Auto-expand ONLY when fully back at the very top
-            if (currentScrollY <= 10 && !navExpanded) {
-                openNav();
-            }
+        const currentScrollY = window.scrollY;
+
+        // Nav becomes sticky exactly when scrollY >= its natural top position
+        if (currentScrollY >= navNaturalTop && navExpanded) {
+            closeNav();
         }
 
-        lastScrollY = currentScrollY;
+        // Expand only when user scrolls back above the nav's natural position
+        if (currentScrollY < navNaturalTop && !navExpanded) {
+            openNav();
+        }
     }, { passive: true });
+
 
     // ─── Category buttons ────────────────────────────────────
     navButtons.forEach(button => {
