@@ -207,7 +207,8 @@ body {
    Collapsible Sticky Nav
    ============================ */
 .nav-wrapper {
-  position: relative;
+  position: sticky;
+  top: 10px;
   z-index: 100;
   margin-bottom: 25px;
   display: flex;

@@ -37,28 +37,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ─── Delayed Sticky Collapse Behavior ───
+    // ─── Collapse when nav reaches top of screen (goes sticky) ───
+    // Measure the nav's natural position after page renders
+    let navNaturalTop = navWrapper.getBoundingClientRect().top + window.scrollY;
+
+    // Re-measure if window resizes (header might reflow)
+    window.addEventListener('resize', () => {
+        // Temporarily un-stick to get true natural position
+        navWrapper.style.position = 'relative';
+        navNaturalTop = navWrapper.getBoundingClientRect().top + window.scrollY;
+        navWrapper.style.position = '';
+    });
+
     window.addEventListener('scroll', () => {
         if (manualOverride) return;
 
-        // Where is the first category currently in the viewport?
-        const catTop = categoriesGrid.getBoundingClientRect().top;
+        const currentScrollY = window.scrollY;
 
-        // If the first category has reached the top (80px from top)
-        if (catTop <= 80) {
-            // Collapse the nav
-            if (navExpanded) closeNav();
-            // Make the wrapper act as a sticky pill
-            navWrapper.style.position = 'fixed';
-            navWrapper.style.top = '10px';
-            navWrapper.style.width = '100%';
-            navWrapper.style.left = '0';
-        } else {
-            // Un-stick it and return to the normal page flow
-            if (!navExpanded) openNav();
-            navWrapper.style.position = 'relative';
-            navWrapper.style.top = '0';
-            navWrapper.style.width = 'auto';
+        // Nav becomes sticky exactly when scrollY >= its natural top position
+        if (currentScrollY >= navNaturalTop && navExpanded) {
+            closeNav();
+        }
+
+        // Expand only when user scrolls back above the nav's natural position
+        if (currentScrollY < navNaturalTop && !navExpanded) {
+            openNav();
         }
     }, { passive: true });
 
