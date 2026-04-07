@@ -97,13 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
             // Collapse nav after selecting a category (all screen sizes for tidiness)
             closeNav();
 
-            // Scroll to menu content
+            // Scroll to specifically selected category content
             setTimeout(() => {
-                document.querySelector('.categories-grid').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }, 150);
+                const targetColumn = category === 'all' 
+                    ? categoriesGrid 
+                    : document.querySelector(`.menu-column[data-category="${category}"]`);
+                
+                if (targetColumn) {
+                    const yOffset = -70; // Offset for the sticky pill button
+                    const y = targetColumn.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            }, 250); // Small delay to let the menu collapse animation finish
         });
     });
 });
