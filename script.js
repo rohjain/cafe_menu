@@ -37,20 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ─── Native sticky collapse behavior ───
+    // ─── Delayed Sticky Collapse Behavior ───
     window.addEventListener('scroll', () => {
         if (manualOverride) return;
 
-        // Where is the first category in the viewport?
+        // Where is the first category currently in the viewport?
         const catTop = categoriesGrid.getBoundingClientRect().top;
 
-        // If the first category has reached the top (sliding under the sticky nav)
+        // If the first category has reached the top (80px from top)
         if (catTop <= 80) {
-            // Collapse into a pill so we free up the screen
+            // Collapse the nav
             if (navExpanded) closeNav();
+            // Make the wrapper act as a sticky pill
+            navWrapper.style.position = 'fixed';
+            navWrapper.style.top = '10px';
+            navWrapper.style.width = '100%';
+            navWrapper.style.left = '0';
         } else {
-            // If scrolled back up, reveal the full categories
+            // Un-stick it and return to the normal page flow
             if (!navExpanded) openNav();
+            navWrapper.style.position = 'relative';
+            navWrapper.style.top = '0';
+            navWrapper.style.width = 'auto';
         }
     }, { passive: true });
 
