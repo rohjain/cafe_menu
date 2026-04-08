@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
             closeNav();
         }
 
-        // Expand only when user scrolls back above the nav's natural position
-        if (currentScrollY < navNaturalTop && !navExpanded) {
+        // Expand ONLY when user scrolls all the way back to the very top, as requested
+        if (currentScrollY <= 10 && !navExpanded) {
             openNav();
         }
     }, { passive: true });
@@ -93,6 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     column.classList.add('hidden');
                 }
             });
+
+            // Pause auto-scroll logic so the programmatic scroll doesn't fight the sticky nav
+            manualOverride = true;
+            clearTimeout(navToggle._overrideTimer);
+            // Re-enable scroll listener after scroll animation completes
+            navToggle._overrideTimer = setTimeout(() => { manualOverride = false; }, 1000);
 
             // Collapse nav after selecting a category (all screen sizes for tidiness)
             closeNav();

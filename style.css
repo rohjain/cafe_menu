@@ -311,6 +311,7 @@ body {
   gap: 20px;
   margin-bottom: 30px;
   flex: 1;
+  min-height: 80vh; /* Prevents layout collapse causing scroll flickering */
 }
 @media (min-width: 1200px) {
   .categories-grid {
