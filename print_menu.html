@@ -3,497 +3,695 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hub & Grub - Printable Menu A4</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Hub & Grub - A3 Bi-fold Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #ffffff;
-      --text-dark: #4c0519; /* Very Dark Burgundy */
-      --text-medium: #831843; /* Rich Deep Rose */
-      --text-light: #52525b; /* Neutral Gray */
-      --accent: #be185d; /* Elegant Magenta/Wine */
-      --border-color: #fbcfe8; /* Soft Pale Pink/Magenta */
-      --highlight: #db2777; /* Bright Magenta */
+      --dark-green: #0a1f13;
+      --cream: #f7f5ef;
+      --accent-green: #22c55e;
+      --accent-dark: #16a34a;
+      --text-dark: #1a1a1a;
+      --text-muted: #555555;
+      --dot-color: #999999;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
 
     @page {
-      size: A4 portrait;
+      size: A3 landscape;
       margin: 0;
     }
 
     body {
       margin: 0;
       padding: 0;
-      background-color: #555; /* Dark background so a4 pages stand out on screen */
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
+      background: #d1d5db;
+      font-family: 'Inter', sans-serif;
     }
 
-    .page {
-      width: 210mm;
+    /* ==================== A3 PAGE CONTAINER ==================== */
+    .a3-page {
+      width: 420mm;
       height: 297mm;
-      background-color: var(--bg-color);
-      color: var(--text-dark);
       margin: 20px auto;
-      padding: 12mm 15mm;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      position: relative;
-      page-break-after: always;
       display: flex;
-      flex-direction: column;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      page-break-after: always;
+      overflow: hidden;
     }
 
     @media print {
-      body {
-        background-color: transparent;
-      }
-      .page {
+      body { background: transparent; }
+      .a3-page {
         margin: 0;
         box-shadow: none;
       }
     }
 
-    .header-container {
-      text-align: center;
-      margin-bottom: 8mm;
-      border-bottom: 2px dashed var(--accent);
-      padding-bottom: 5mm;
-    }
-
-    .cafe-name {
-      font-family: 'Oswald', sans-serif;
-      font-size: 32pt;
-      font-weight: 700;
-      color: var(--text-dark);
-      letter-spacing: 4px;
-      margin: 0;
-      text-transform: uppercase;
-    }
-
-    .cafe-tagline {
-      font-family: 'Great Vibes', cursive;
-      font-size: 20pt;
-      color: var(--accent);
-      margin: -2mm 0 0 0;
-    }
-
-    .page-content {
+    /* ==================== PANEL (Each half = A4) ==================== */
+    .panel {
+      width: 210mm;
+      height: 297mm;
+      padding: 10mm 12mm;
       display: flex;
-      gap: 10mm;
-      flex: 1;
+      flex-direction: column;
+      overflow: hidden;
     }
 
-    .column {
+    .panel-dark {
+      background-color: var(--dark-green);
+      color: #ffffff;
+    }
+
+    .panel-light {
+      background-color: var(--cream);
+      color: var(--text-dark);
+    }
+
+    /* ==================== FRONT COVER (Panel 1) ==================== */
+    .front-cover {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .front-cover .logo-section {
+      margin-bottom: 8mm;
+    }
+
+    .front-cover .cafe-name {
+      font-family: 'Fredoka One', cursive;
+      font-size: 64pt;
+      line-height: 0.95;
+      letter-spacing: 3px;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .front-cover .cafe-name .amp {
+      color: var(--accent-green);
+      font-size: 56pt;
+    }
+
+    .front-cover .tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 11pt;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #cccccc;
+      margin-top: 4mm;
+    }
+
+    .front-cover .icons-row {
+      display: flex;
+      justify-content: center;
+      gap: 12mm;
+      margin: 15mm 0;
+      font-size: 28pt;
+    }
+
+    .front-cover .icons-row span {
+      width: 18mm;
+      height: 18mm;
+      border: 2px solid var(--accent-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22pt;
+    }
+
+    .front-cover .style-line {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 9pt;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-top: 10mm;
+    }
+
+    .front-cover .slogan {
+      font-family: 'Dancing Script', cursive;
+      font-size: 30pt;
+      color: var(--accent-green);
+      margin-top: 8mm;
+      font-weight: 700;
+    }
+
+    /* ==================== BACK COVER (Panel 4) ==================== */
+    .back-cover {
+      position: relative;
+    }
+
+    .back-cover .back-content {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 4mm;
+      gap: 3mm;
     }
 
-    .category {
-      background: var(--bg-color);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 4mm;
+    .back-footer {
+      background-color: var(--dark-green);
+      color: #ffffff;
+      padding: 5mm 8mm;
+      margin: auto -12mm -10mm -12mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8.5pt;
+    }
+
+    .back-footer .contact-item {
+      text-align: center;
+    }
+
+    .back-footer .contact-name {
+      color: var(--accent-green);
+      font-weight: 700;
+      font-size: 9pt;
+    }
+
+    .back-footer .contact-number {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 8.5pt;
+    }
+
+    .back-footer .location {
+      text-align: center;
+      font-size: 8pt;
+      color: #cccccc;
+    }
+
+    .back-footer .social {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+      font-size: 8pt;
+      color: #cccccc;
+    }
+
+    .back-footer .thank-you {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 8pt;
+      color: #ffffff;
+    }
+
+    .back-footer .thank-you .heart {
+      color: var(--accent-green);
+    }
+
+    /* ==================== INSIDE PANELS LAYOUT ==================== */
+    .inside-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5mm;
+    }
+
+    .inside-panel .panel-header {
+      text-align: center;
+      padding-bottom: 3mm;
+      border-bottom: 2px solid var(--accent-green);
       margin-bottom: 2mm;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .inside-panel .panel-header h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 22pt;
+      color: var(--accent-green);
+      letter-spacing: 2px;
+    }
+
+    .inside-panel .panel-header h1 .amp {
+      color: var(--text-dark);
+      font-size: 18pt;
+    }
+
+    /* ==================== CATEGORY STYLING ==================== */
+    .category {
+      margin-bottom: 1.5mm;
     }
 
     .cat-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 22pt;
-      color: var(--text-dark);
-      text-align: center;
-      margin: 0 0 3mm 0;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 2px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 13pt;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 1.5mm 0;
+      padding-bottom: 1mm;
+      border-bottom: 2px solid var(--accent-green);
+      display: inline-block;
     }
 
     .sub-cat {
-      font-family: 'Oswald', sans-serif;
-      font-size: 11pt;
-      color: var(--accent);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 8.5pt;
+      color: var(--text-dark);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 2mm 0 1mm 0;
-      border-bottom: 1px dotted var(--border-color);
+      letter-spacing: 0.5px;
+      margin: 1.5mm 0 1mm 0;
     }
 
+    /* ==================== ITEM STYLING ==================== */
     .item {
       display: flex;
-      justify-content: space-between;
       align-items: baseline;
-      font-size: 9.5pt;
-      margin-bottom: 1.5mm;
-      line-height: 1.2;
+      font-size: 9pt;
+      margin-bottom: 1.2mm;
+      line-height: 1.25;
     }
 
     .item-name {
-      font-family: 'Oswald', sans-serif;
-      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
       font-weight: 500;
-      letter-spacing: 0.5px;
-      position: relative;
+      color: var(--text-dark);
+      white-space: nowrap;
     }
 
     .item-name.green {
-      color: var(--highlight);
+      color: var(--accent-dark);
+      font-weight: 600;
     }
 
-    .item::before {
-      content: "";
+    .item-dots {
       flex: 1;
-      border-bottom: 1px dotted var(--border-color);
-      margin: 0 8px;
+      border-bottom: 1px dotted var(--dot-color);
+      margin: 0 4px;
       position: relative;
-      top: -3px;
-      order: 1;
+      top: -2px;
+      min-width: 5mm;
     }
 
-    .item-name { order: 0; }
-    .item-price-container { 
-      order: 2; 
-      display: flex; 
+    .item-price-container {
+      display: flex;
       gap: 3mm;
       align-items: baseline;
     }
 
     .price {
-      font-family: 'Oswald', sans-serif;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 9.5pt;
       color: var(--text-dark);
-      font-weight: 600;
       text-align: right;
-      min-width: 15mm;
+      min-width: 8mm;
     }
 
     .price.green {
-      color: var(--highlight);
+      color: var(--accent-dark);
     }
 
+    /* ==================== LEGEND ==================== */
     .legend {
       display: flex;
       justify-content: flex-end;
       gap: 3mm;
-      font-family: 'Oswald', sans-serif;
-      font-size: 8pt;
-      color: var(--text-medium);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 7pt;
+      color: var(--accent-green);
       text-transform: uppercase;
       margin-bottom: 1mm;
     }
+
     .legend span {
-      min-width: 15mm;
+      min-width: 8mm;
       text-align: right;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: auto;
-      padding-top: 5mm;
-      font-family: 'Poppins', sans-serif;
-      font-size: 9pt;
-      color: var(--text-light);
-      border-top: 1px dashed var(--border-color);
-    }
-    
-    .footer-highlight {
-      color: var(--accent);
-      font-weight: 600;
+    .small-text {
+      font-size: 6.5pt;
+      color: var(--text-muted);
+      font-weight: 400;
+      display: block;
     }
 
-    .small-text {
-      font-size: 7.5pt;
-      color: var(--text-medium);
-      margin-top: 2px;
+    /* ==================== TWO-COL LAYOUT FOR BACK COVER ==================== */
+    .two-col {
+      display: flex;
+      gap: 8mm;
+    }
+
+    .two-col .col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5mm;
+    }
+
+    /* Items for the back cover panels (slightly smaller) */
+    .back-cover .item {
+      font-size: 8.5pt;
+      margin-bottom: 1mm;
+    }
+
+    .back-cover .price {
+      font-size: 9pt;
+      min-width: 8mm;
+    }
+
+    .back-cover .cat-title {
+      font-size: 12pt;
+    }
+
+    .back-cover .legend {
+      font-size: 6.5pt;
+    }
+
+    /* ==================== FLAT PRICE LIST (Mocktail/Milkshake style) ==================== */
+    .flat-list .cat-title {
+      display: inline;
+      margin-right: 3mm;
+    }
+
+    .flat-list .flat-price {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+      color: var(--accent-green);
+    }
+
+    .flat-list .item {
+      font-size: 8.5pt;
+      margin-bottom: 0.8mm;
+    }
+
+    .flat-list .item-name {
+      font-weight: 400;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
 
-  <!-- PAGE 1: Momos, Roll, Sandwich, Burger & Fries -->
-  <div class="page">
-    <div class="header-container">
-      <h1 class="cafe-name">Hub & Grub</h1>
-      <p class="cafe-tagline">The best cafe in town!</p>
-    </div>
+  <!-- ===================== PAGE 1: OUTSIDE (Back Cover Left + Front Cover Right) ===================== -->
+  <div class="a3-page">
 
-    <div class="page-content">
-      <!-- Column 1 -->
-      <div class="column">
-        <!-- Momos -->
-        <div class="category">
-          <h2 class="cat-title">Momos</h2>
-          
-          <h3 class="sub-cat">Steam Momos</h3>
-          <div class="legend"><span>06 Pcs<br><span class="small-text">Half</span></span><span>10 Pcs<br><span class="small-text">Full</span></span></div>
-          <div class="item"><span class="item-name">Veg Steam Momos</span><div class="item-price-container"><span class="price">50</span><span class="price">80</span></div></div>
-          <div class="item"><span class="item-name">Paneer Steam Momos</span><div class="item-price-container"><span class="price">60</span><span class="price">100</span></div></div>
-          <div class="item"><span class="item-name">Veg Cheese Steam Momos</span><div class="item-price-container"><span class="price">60</span><span class="price">100</span></div></div>
-          <div class="item"><span class="item-name">Corn Cheese Steam Momos</span><div class="item-price-container"><span class="price">70</span><span class="price">110</span></div></div>
-          <div class="item"><span class="item-name">Paneer Cheese Steam Momos</span><div class="item-price-container"><span class="price">70</span><span class="price">110</span></div></div>
+    <!-- PANEL 4: Back Cover (Left side when unfolded) -->
+    <div class="panel panel-light back-cover">
+      <div class="back-content">
 
-          <h3 class="sub-cat" style="margin-top: 4mm;">Fried Momos</h3>
-          <div class="item"><span class="item-name">Veg Fried Momos</span><div class="item-price-container"><span class="price">60</span><span class="price">90</span></div></div>
-          <div class="item"><span class="item-name">Paneer Fried Momos</span><div class="item-price-container"><span class="price">70</span><span class="price">110</span></div></div>
-          <div class="item"><span class="item-name">Veg Cheese Fried Momos</span><div class="item-price-container"><span class="price">70</span><span class="price">110</span></div></div>
-          <div class="item"><span class="item-name">Corn Cheese Fried Momos</span><div class="item-price-container"><span class="price">80</span><span class="price">120</span></div></div>
-          <div class="item"><span class="item-name">Paneer Chz Fried Momos</span><div class="item-price-container"><span class="price">80</span><span class="price">120</span></div></div>
+        <div class="two-col">
+          <!-- Left Column: Chinese, Rice -->
+          <div class="col">
+            <!-- Chinese -->
+            <div class="category">
+              <h2 class="cat-title">Chinese</h2>
+              <div class="item"><span class="item-name">Veg Noodles</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Manchurian Noodles</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+              <div class="item"><span class="item-name">Hakka Noodles</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+              <div class="item"><span class="item-name">Schezwan Noodles</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+              <div class="item"><span class="item-name">Crispy Noodles</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+              <div class="item"><span class="item-name">Mushroom Noodles</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+              <div class="item"><span class="item-name">Garlic Noodles</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+              <div class="item"><span class="item-name">Singapore Noodles</span><span class="item-dots"></span><div class="item-price-container"><span class="price">140</span></div></div>
 
-          <h3 class="sub-cat" style="margin-top: 4mm;">Kurkure Momos</h3>
-          <div class="item"><span class="item-name">Veg Kurkure Momos</span><div class="item-price-container"><span class="price">80</span><span class="price">110</span></div></div>
-          <div class="item"><span class="item-name">Paneer Kurkure Momos</span><div class="item-price-container"><span class="price">90</span><span class="price">130</span></div></div>
-          <div class="item"><span class="item-name">Veg Cheese Kurkure Momos</span><div class="item-price-container"><span class="price">90</span><span class="price">130</span></div></div>
-          <div class="item"><span class="item-name">Corn Cheese Kurkure Momos</span><div class="item-price-container"><span class="price">100</span><span class="price">140</span></div></div>
-          <div class="item"><span class="item-name">Paneer Chz Kurkure Momos</span><div class="item-price-container"><span class="price">100</span><span class="price">140</span></div></div>
-          
-          <h3 class="sub-cat" style="margin-top: 4mm;">Special Section</h3>
-          <div class="item"><span class="item-name">Baked Cheese Momo (6 Pcs)</span><div class="item-price-container"><span class="price">150</span></div></div>
-          <div class="item"><span class="item-name green">Momo's Platter (12 Mix)</span><div class="item-price-container"><span class="price green">160</span></div></div>
+              <div class="legend" style="margin-top: 2mm;"><span>Dry</span><span>Gravy</span></div>
+              <div class="item"><span class="item-name">Manchurian</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span><span class="price">100</span></div></div>
+              <div class="item"><span class="item-name">Chilly Potato</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span><span class="price">140</span></div></div>
+              <div class="item"><span class="item-name">Honey Chilly Potato</span><span class="item-dots"></span><div class="item-price-container"><span class="price">130</span><span class="price">150</span></div></div>
+              <div class="item"><span class="item-name">Paneer Chilly</span><span class="item-dots"></span><div class="item-price-container"><span class="price">160</span><span class="price">170</span></div></div>
+              <div class="item"><span class="item-name">Mushroom Chilly</span><span class="item-dots"></span><div class="item-price-container"><span class="price">180</span><span class="price">200</span></div></div>
+            </div>
+
+            <!-- Rice -->
+            <div class="category">
+              <h2 class="cat-title">Rice</h2>
+              <div class="item"><span class="item-name">Veg Fried Rice</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Manchurian Rice</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+              <div class="item"><span class="item-name">Triple Fried Rice</span><span class="item-dots"></span><div class="item-price-container"><span class="price">150</span></div></div>
+            </div>
+          </div>
+
+          <!-- Right Column: Mocktails, Milkshakes, Desserts -->
+          <div class="col">
+            <!-- Mocktails -->
+            <div class="category">
+              <h2 class="cat-title">Mocktails</h2>
+              <div class="item"><span class="item-name">Mint Mojito</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+              <div class="item"><span class="item-name">Peach Tea</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Watermelon</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Lemo Ice Tea</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Spicy Lemonade</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+              <div class="item"><span class="item-name">Blue Curacao</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+              <div class="item"><span class="item-name">Green Apple</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+            </div>
+
+            <!-- Milkshakes -->
+            <div class="category">
+              <h2 class="cat-title">Milkshakes</h2>
+              <div class="item"><span class="item-name">Cold Coffee</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span></div></div>
+              <div class="item"><span class="item-name">Oreo Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Kitkat Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Mango Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Orange Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+              <div class="item"><span class="item-name">Lychee Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+              <div class="item"><span class="item-name">BlackCurrant Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+              <div class="item"><span class="item-name">Strawberry Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+              <div class="item"><span class="item-name">Tiramisu Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+              <div class="item"><span class="item-name">BlueBerry Milkshake</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="category">
+              <h2 class="cat-title">Desserts</h2>
+              <div class="item"><span class="item-name">Hot Brownie</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+              <div class="item"><span class="item-name">Hot Brownie with Ice Cream</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+              <h3 class="sub-cat" style="margin-top: 1.5mm;">Creamy Ice Cream</h3>
+              <div class="item"><span class="item-name">Classy Vanilla</span><span class="item-dots"></span><div class="item-price-container"><span class="price">30</span></div></div>
+              <div class="item"><span class="item-name">Rich Dutch Chocolate</span><span class="item-dots"></span><div class="item-price-container"><span class="price">30</span></div></div>
+              <div class="item"><span class="item-name">American Nutty Delight</span><span class="item-dots"></span><div class="item-price-container"><span class="price">30</span></div></div>
+            </div>
+          </div>
         </div>
 
       </div>
 
-      <!-- Column 2 -->
-      <div class="column">
-        <!-- Chilly Momos -->
-        <div class="category">
-          <h2 class="cat-title">Chilly Chinese Momos</h2>
-          <div class="legend"><span>06 Pcs<br><span class="small-text">Half</span></span><span>10 Pcs<br><span class="small-text">Full</span></span></div>
-          <div class="item"><span class="item-name">Veg Chilly Chinese Momos</span><div class="item-price-container"><span class="price">110</span><span class="price">160</span></div></div>
-          <div class="item"><span class="item-name">Paneer Chilly Chns Momos</span><div class="item-price-container"><span class="price">120</span><span class="price">180</span></div></div>
-          <div class="item"><span class="item-name">Veg Cheese Chilly Momos</span><div class="item-price-container"><span class="price">120</span><span class="price">180</span></div></div>
-          <div class="item"><span class="item-name">Corn Cheese Chilly Momos</span><div class="item-price-container"><span class="price">130</span><span class="price">190</span></div></div>
-          <div class="item"><span class="item-name">Paneer Chz Chilly Momos</span><div class="item-price-container"><span class="price">130</span><span class="price">190</span></div></div>
+      <!-- Dark Footer -->
+      <div class="back-footer">
+        <div class="contact-item">
+          <div class="contact-name">Rahul</div>
+          <div class="contact-number">8602686647</div>
         </div>
-        
-        <!-- Burger & Fries -->
-        <div class="category">
-          <h2 class="cat-title">Burger & Fries</h2>
-          <h3 class="sub-cat">Burger</h3>
-          <div class="item"><span class="item-name">Veg Tikki Burger</span><div class="item-price-container"><span class="price">60</span></div></div>
-          <div class="item"><span class="item-name">Veg Tikki Cheese Burger</span><div class="item-price-container"><span class="price">70</span></div></div>
-          <div class="item"><span class="item-name">Veg Paneer Burger</span><div class="item-price-container"><span class="price">90</span></div></div>
-          <div class="item"><span class="item-name">Classic Delight Burger</span><div class="item-price-container"><span class="price">100</span></div></div>
-          <h3 class="sub-cat" style="margin-top: 3mm;">Fries</h3>
-          <div class="item"><span class="item-name">Plain Salted Fries</span><div class="item-price-container"><span class="price">60</span></div></div>
-          <div class="item"><span class="item-name">Peri Peri Fries</span><div class="item-price-container"><span class="price">80</span></div></div>
-          <div class="item"><span class="item-name">Cheese Fries</span><div class="item-price-container"><span class="price">100</span></div></div>
+        <div class="location">
+          Seminary Road,<br>Ashta
         </div>
-
-        <!-- Rolls -->
-        <div class="category">
-          <h2 class="cat-title">Rolls</h2>
-          <div class="item"><span class="item-name">Veg Roll</span><div class="item-price-container"><span class="price">70</span></div></div>
-          <div class="item"><span class="item-name">Veg Schezwan Roll</span><div class="item-price-container"><span class="price">80</span></div></div>
-          <div class="item"><span class="item-name">Veg Noodles Roll</span><div class="item-price-container"><span class="price">90</span></div></div>
-          <div class="item"><span class="item-name">Veg Paneer Roll</span><div class="item-price-container"><span class="price">110</span></div></div>
-          <div class="item"><span class="item-name">Veg Tandoori Paneer Roll</span><div class="item-price-container"><span class="price">120</span></div></div>
+        <div class="social">
+          <span>&#9400;</span> hub_and_grub_cafe
         </div>
-
+        <div class="thank-you">
+          Thank You! Visit Again <span class="heart">&#x1F49A;</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-name">Lokendra</div>
+          <div class="contact-number">9644565090</div>
+        </div>
       </div>
     </div>
-    
-    <div class="footer">
-      <span class="footer-highlight">Rahul: 8602686647</span> &nbsp;|&nbsp; 
-      <span class="footer-highlight">Lokendra: 9644565090</span><br>
-      Seminary Road, Near Gitanjali Garden, Ashta
+
+    <!-- PANEL 1: Front Cover (Right side when unfolded) -->
+    <div class="panel panel-dark front-cover">
+      <div class="logo-section">
+        <h1 class="cafe-name">
+          HUB<br>
+          <span class="amp">&</span><br>
+          GRUB
+        </h1>
+        <p class="tagline">Present by : Momo Junction</p>
+      </div>
+
+      <div class="icons-row">
+        <span>🍔</span>
+        <span>🍕</span>
+        <span>🥟</span>
+        <span>🥤</span>
+      </div>
+
+      <div class="style-line">Street Style &bull; Fast Food &bull; Cafe</div>
+
+      <p class="slogan">Good Food<br>Good Mood</p>
     </div>
+
   </div>
 
-  <!-- PAGE 2: Pizza, Garlic Bread, Sandwich, Pasta, Maggi, Chinese, Mocktail, Milkshake, Dessert -->
-  <div class="page">
-    <div class="header-container" style="display:none; /* Option to hide header on P2 */">
-      <h1 class="cafe-name">Hub & Grub</h1>
-    </div>
+  <!-- ===================== PAGE 2: INSIDE SPREAD (Inside Left + Inside Right) ===================== -->
+  <div class="a3-page">
 
-    <div class="page-content">
-      <!-- Column 1 -->
-      <div class="column">
-        <!-- Pizza -->
-        <div class="category">
-          <h2 class="cat-title">Pizza</h2>
-          <div class="legend"><span>Reg<br><span class="small-text">6"</span></span><span>Med<br><span class="small-text">9"</span></span><span>Lrg<br><span class="small-text">12"</span></span></div>
-          <div class="item"><span class="item-name">Margherita Pizza</span><div class="item-price-container"><span class="price">100</span><span class="price">150</span><span class="price">200</span></div></div>
-          <div class="item"><span class="item-name">Tomato Pizza</span><div class="item-price-container"><span class="price">110</span><span class="price">170</span><span class="price">220</span></div></div>
-          <div class="item"><span class="item-name">Onion Pizza</span><div class="item-price-container"><span class="price">110</span><span class="price">170</span><span class="price">220</span></div></div>
-          <div class="item"><span class="item-name">Corn Cheese Pizza</span><div class="item-price-container"><span class="price">120</span><span class="price">180</span><span class="price">230</span></div></div>
-          <div class="item"><span class="item-name">Veg Cheese Pizza</span><div class="item-price-container"><span class="price">140</span><span class="price">190</span><span class="price">250</span></div></div>
-          <div class="item"><span class="item-name">Mushroom Pizza</span><div class="item-price-container"><span class="price">140</span><span class="price">190</span><span class="price">250</span></div></div>
-          <div class="item"><span class="item-name">Paneer Cheese Pizza</span><div class="item-price-container"><span class="price">150</span><span class="price">200</span><span class="price">260</span></div></div>
-          <div class="item"><span class="item-name">Paneer Makhni Pizza</span><div class="item-price-container"><span class="price">160</span><span class="price">220</span><span class="price">280</span></div></div>
-          <div class="item"><span class="item-name">Farm House Pizza</span><div class="item-price-container"><span class="price">170</span><span class="price">240</span><span class="price">300</span></div></div>
-          <div class="item"><span class="item-name green">ADD ON: CHEESE</span><div class="item-price-container"><span class="price green">50</span><span class="price green">100</span><span class="price green"></span></div></div>
-        </div>
-
-        <!-- Volcano Pizza -->
-        <div class="category">
-          <h2 class="cat-title">Volcano Pizza</h2>
-          <div class="legend" style="justify-content: flex-end;"><span>Large<br><span class="small-text">12"</span></span></div>
-          <div class="item"><span class="item-name">Cheese Corn Volcano Pizza</span><div class="item-price-container"><span class="price">300</span></div></div>
-          <div class="item"><span class="item-name">Onion Tomato Volcano Pizza</span><div class="item-price-container"><span class="price">310</span></div></div>
-          <div class="item"><span class="item-name">Onion Capsicum Volcano</span><div class="item-price-container"><span class="price">310</span></div></div>
-          <div class="item"><span class="item-name">Veg Volcano Pizza</span><div class="item-price-container"><span class="price">320</span></div></div>
-          <div class="item"><span class="item-name">Volcano Pizza</span><div class="item-price-container"><span class="price">330</span></div></div>
-        </div>
-
-        <!-- Garlic Bread -->
-        <div class="category">
-          <h2 class="cat-title">Garlic Bread</h2>
-          <div class="item"><span class="item-name">Garlic Bread classic</span><div class="item-price-container"><span class="price">80</span></div></div>
-          <div class="item"><span class="item-name">Cheese Garlic Bread</span><div class="item-price-container"><span class="price">90</span></div></div>
-          <div class="item"><span class="item-name">Hot & Spicy Garlic Bread</span><div class="item-price-container"><span class="price">90</span></div></div>
-          <div class="item"><span class="item-name">Cheese Corn Garlic Bread</span><div class="item-price-container"><span class="price">100</span></div></div>
-          <div class="item"><span class="item-name">Cheese Paneer Garlic Bread</span><div class="item-price-container"><span class="price">120</span></div></div>
-          <div class="item"><span class="item-name">H&G Special Garlic Bread</span><div class="item-price-container"><span class="price">150</span></div></div>
-        </div>
-
+    <!-- PANEL 2: Inside Left -->
+    <div class="panel panel-light inside-panel">
+      <div class="panel-header">
+        <h1>HUB <span class="amp">&</span> GRUB</h1>
       </div>
 
-      <!-- Column 2 -->
-      <div class="column">
-        <!-- Sandwich -->
-        <div class="category">
-            <h2 class="cat-title">Sandwich</h2>
-            <div class="item"><span class="item-name">Bombay Kaccha Sandwich</span><div class="item-price-container"><span class="price">50</span></div></div>
-            <div class="item"><span class="item-name">Masala Sandwich</span><div class="item-price-container"><span class="price">70</span></div></div>
-            <div class="item"><span class="item-name">Cheese Chutney Sandwich</span><div class="item-price-container"><span class="price">70</span></div></div>
-            <div class="item"><span class="item-name">Corn Cheese Sandwich</span><div class="item-price-container"><span class="price">80</span></div></div>
-            <div class="item"><span class="item-name">Masala Cheese Sandwich</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Veg Chz Grilled Sandwich</span><div class="item-price-container"><span class="price">100</span></div></div>
-            <div class="item"><span class="item-name">Nutella Sandwich</span><div class="item-price-container"><span class="price">100</span></div></div>
-            <div class="item"><span class="item-name">Paneer Tandoori Sandwich</span><div class="item-price-container"><span class="price">110</span></div></div>
-            <div class="item"><span class="item-name">Paneer Makhani Sandwich</span><div class="item-price-container"><span class="price">110</span></div></div>
-            <div class="item"><span class="item-name">Veg Club Sandwich</span><div class="item-price-container"><span class="price">120</span></div></div>
-            <div class="item"><span class="item-name">Veg Paneer Sandwich</span><div class="item-price-container"><span class="price">120</span></div></div>
-            <div class="item"><span class="item-name">Classic Delight Sandwich</span><div class="item-price-container"><span class="price">130</span></div></div>
-            <div class="item"><span class="item-name">Fruit Jam Sandwich</span><div class="item-price-container"><span class="price">150</span></div></div>
-            <div class="item"><span class="item-name">Jumbo Sandwich</span><div class="item-price-container"><span class="price">150</span></div></div>
-        </div>
+      <!-- Momos -->
+      <div class="category">
+        <h2 class="cat-title">Momos</h2>
 
-        <!-- Maggi -->
-        <div class="category">
-          <h2 class="cat-title">Maggi</h2>
-          <div class="item"><span class="item-name">Plain Maggi</span><div class="item-price-container"><span class="price">60</span></div></div>
-          <div class="item"><span class="item-name">Masala Maggi</span><div class="item-price-container"><span class="price">80</span></div></div>
-          <div class="item"><span class="item-name">Veg Corn Maggi</span><div class="item-price-container"><span class="price">80</span></div></div>
-          <div class="item"><span class="item-name">Plain Cheese Maggi</span><div class="item-price-container"><span class="price">80</span></div></div>
-          <div class="item"><span class="item-name">Corn Cheese Maggi</span><div class="item-price-container"><span class="price">90</span></div></div>
-          <div class="item"><span class="item-name">Paneer Tandoori Maggi</span><div class="item-price-container"><span class="price">100</span></div></div>
-          <div class="item"><span class="item-name">Punjabi Tadka Maggi</span><div class="item-price-container"><span class="price">100</span></div></div>
-          <div class="item"><span class="item-name">Alfredo Maggi</span><div class="item-price-container"><span class="price">120</span></div></div>
-          <div class="item"><span class="item-name">Classic Delight Maggi</span><div class="item-price-container"><span class="price">140</span></div></div>
-        </div>
+        <h3 class="sub-cat">Steam Momos</h3>
+        <div class="legend"><span>Half<br><span class="small-text">06 Pcs</span></span><span>Full<br><span class="small-text">10 Pcs</span></span></div>
+        <div class="item"><span class="item-name">Veg Steam Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">50</span><span class="price">80</span></div></div>
+        <div class="item"><span class="item-name">Paneer Steam Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">60</span><span class="price">100</span></div></div>
+        <div class="item"><span class="item-name">Veg Cheese Steam Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">60</span><span class="price">100</span></div></div>
+        <div class="item"><span class="item-name">Corn Cheese Steam Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span><span class="price">110</span></div></div>
+        <div class="item"><span class="item-name">Paneer Cheese Steam Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span><span class="price">110</span></div></div>
 
-        <!-- Pasta -->
-        <div class="category">
-          <h2 class="cat-title">Pasta</h2>
-          <div class="item"><span class="item-name">Red Sauce Pasta</span><div class="item-price-container"><span class="price">110</span></div></div>
-          <div class="item"><span class="item-name">White Sauce Pasta</span><div class="item-price-container"><span class="price">130</span></div></div>
-          <div class="item"><span class="item-name">Spaghetti Pasta</span><div class="item-price-container"><span class="price">160</span></div></div>
-          <div class="item"><span class="item-name">Hot Garlic Pasta</span><div class="item-price-container"><span class="price">180</span></div></div>
-        </div>
+        <h3 class="sub-cat" style="margin-top: 2mm;">Fried Momos</h3>
+        <div class="item"><span class="item-name">Veg Fried Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">60</span><span class="price">90</span></div></div>
+        <div class="item"><span class="item-name">Paneer Fried Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span><span class="price">110</span></div></div>
+        <div class="item"><span class="item-name">Veg Cheese Fried Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span><span class="price">110</span></div></div>
+        <div class="item"><span class="item-name">Corn Cheese Fried Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span><span class="price">120</span></div></div>
+        <div class="item"><span class="item-name">Paneer Chz Fried Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span><span class="price">120</span></div></div>
+
+        <h3 class="sub-cat" style="margin-top: 2mm;">Kurkure Momos</h3>
+        <div class="item"><span class="item-name">Veg Kurkure Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span><span class="price">110</span></div></div>
+        <div class="item"><span class="item-name">Paneer Kurkure Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span><span class="price">130</span></div></div>
+        <div class="item"><span class="item-name">Veg Cheese Kurkure Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span><span class="price">130</span></div></div>
+        <div class="item"><span class="item-name">Corn Cheese Kurkure Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span><span class="price">140</span></div></div>
+        <div class="item"><span class="item-name">Paneer Chz Kurkure Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span><span class="price">140</span></div></div>
+
+        <h3 class="sub-cat" style="margin-top: 2mm;">Special Section</h3>
+        <div class="item"><span class="item-name">Baked Cheese Momo (6 Pcs)</span><span class="item-dots"></span><div class="item-price-container"><span class="price">150</span></div></div>
+        <div class="item"><span class="item-name green">Momo's Platter (12 Mix)</span><span class="item-dots"></span><div class="item-price-container"><span class="price green">160</span></div></div>
+      </div>
+
+      <!-- Chilly Chinese Momos -->
+      <div class="category">
+        <h2 class="cat-title">Chilly Chinese Momos</h2>
+        <div class="legend"><span>Half<br><span class="small-text">06 Pcs</span></span><span>Full<br><span class="small-text">10 Pcs</span></span></div>
+        <div class="item"><span class="item-name">Veg Chilly Chinese Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span><span class="price">160</span></div></div>
+        <div class="item"><span class="item-name">Paneer Chilly Chns Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span><span class="price">180</span></div></div>
+        <div class="item"><span class="item-name">Veg Cheese Chilly Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span><span class="price">180</span></div></div>
+        <div class="item"><span class="item-name">Corn Cheese Chilly Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">130</span><span class="price">190</span></div></div>
+        <div class="item"><span class="item-name">Paneer Chz Chilly Momos</span><span class="item-dots"></span><div class="item-price-container"><span class="price">130</span><span class="price">190</span></div></div>
+      </div>
+
+      <!-- Burger & Fries -->
+      <div class="category">
+        <h2 class="cat-title">Burger & Fries</h2>
+        <h3 class="sub-cat">Burger</h3>
+        <div class="item"><span class="item-name">Veg Tikki Burger</span><span class="item-dots"></span><div class="item-price-container"><span class="price">60</span></div></div>
+        <div class="item"><span class="item-name">Veg Tikki Cheese Burger</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span></div></div>
+        <div class="item"><span class="item-name">Veg Paneer Burger</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+        <div class="item"><span class="item-name">Classic Delight Burger</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+        <h3 class="sub-cat" style="margin-top: 1.5mm;">Fries</h3>
+        <div class="item"><span class="item-name">Plain Salted Fries</span><span class="item-dots"></span><div class="item-price-container"><span class="price">60</span></div></div>
+        <div class="item"><span class="item-name">Peri Peri Fries</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+        <div class="item"><span class="item-name">Cheese Fries</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+      </div>
+
+      <!-- Rolls -->
+      <div class="category">
+        <h2 class="cat-title">Rolls</h2>
+        <div class="item"><span class="item-name">Veg Roll</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span></div></div>
+        <div class="item"><span class="item-name">Veg Schezwan Roll</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+        <div class="item"><span class="item-name">Veg Noodles Roll</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+        <div class="item"><span class="item-name">Veg Paneer Roll</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+        <div class="item"><span class="item-name">Veg Tandoori Paneer Roll</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
       </div>
     </div>
-    
-    <div class="footer">
-      <span class="footer-highlight">Rahul: 8602686647</span> &nbsp;|&nbsp; 
-      <span class="footer-highlight">Lokendra: 9644565090</span>
+
+    <!-- PANEL 3: Inside Right -->
+    <div class="panel panel-light inside-panel">
+      <div class="panel-header">
+        <h1>HUB <span class="amp">&</span> GRUB</h1>
+      </div>
+
+      <!-- Pizza -->
+      <div class="category">
+        <h2 class="cat-title">Pizza</h2>
+        <div class="legend"><span>Reg<br><span class="small-text">6"</span></span><span>Med<br><span class="small-text">9"</span></span><span>Lrg<br><span class="small-text">12"</span></span></div>
+        <div class="item"><span class="item-name">Margherita Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span><span class="price">150</span><span class="price">200</span></div></div>
+        <div class="item"><span class="item-name">Tomato Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span><span class="price">170</span><span class="price">220</span></div></div>
+        <div class="item"><span class="item-name">Onion Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span><span class="price">170</span><span class="price">220</span></div></div>
+        <div class="item"><span class="item-name">Corn Cheese Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span><span class="price">180</span><span class="price">230</span></div></div>
+        <div class="item"><span class="item-name">Veg Cheese Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">140</span><span class="price">190</span><span class="price">250</span></div></div>
+        <div class="item"><span class="item-name">Mushroom Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">140</span><span class="price">190</span><span class="price">250</span></div></div>
+        <div class="item"><span class="item-name">Paneer Cheese Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">150</span><span class="price">200</span><span class="price">260</span></div></div>
+        <div class="item"><span class="item-name">Paneer Makhni Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">160</span><span class="price">220</span><span class="price">280</span></div></div>
+        <div class="item"><span class="item-name">Farm House Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">170</span><span class="price">240</span><span class="price">300</span></div></div>
+        <div class="item"><span class="item-name green">ADD ON: CHEESE</span><span class="item-dots"></span><div class="item-price-container"><span class="price green">50</span><span class="price green">100</span><span class="price green"></span></div></div>
+      </div>
+
+      <!-- Volcano Pizza -->
+      <div class="category">
+        <h2 class="cat-title">Volcano Pizza</h2>
+        <div class="legend"><span>Large<br><span class="small-text">12"</span></span></div>
+        <div class="item"><span class="item-name">Cheese Corn Volcano Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">300</span></div></div>
+        <div class="item"><span class="item-name">Onion Tomato Volcano Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">310</span></div></div>
+        <div class="item"><span class="item-name">Onion Capsicum Volcano</span><span class="item-dots"></span><div class="item-price-container"><span class="price">310</span></div></div>
+        <div class="item"><span class="item-name">Veg Volcano Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">320</span></div></div>
+        <div class="item"><span class="item-name">Volcano Pizza</span><span class="item-dots"></span><div class="item-price-container"><span class="price">330</span></div></div>
+      </div>
+
+      <!-- Garlic Bread -->
+      <div class="category">
+        <h2 class="cat-title">Garlic Bread</h2>
+        <div class="item"><span class="item-name">Garlic Bread Classic</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+        <div class="item"><span class="item-name">Cheese Garlic Bread</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+        <div class="item"><span class="item-name">Hot & Spicy Garlic Bread</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+        <div class="item"><span class="item-name">Cheese Corn Garlic Bread</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+        <div class="item"><span class="item-name">Cheese Paneer Garlic Bread</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+        <div class="item"><span class="item-name">H&G Special Garlic Bread</span><span class="item-dots"></span><div class="item-price-container"><span class="price">150</span></div></div>
+      </div>
+
+      <!-- Sandwich -->
+      <div class="category">
+        <h2 class="cat-title">Sandwich</h2>
+        <div class="item"><span class="item-name">Bombay Kaccha Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">50</span></div></div>
+        <div class="item"><span class="item-name">Masala Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span></div></div>
+        <div class="item"><span class="item-name">Cheese Chutney Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">70</span></div></div>
+        <div class="item"><span class="item-name">Corn Cheese Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+        <div class="item"><span class="item-name">Masala Cheese Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+        <div class="item"><span class="item-name">Veg Chz Grilled Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+        <div class="item"><span class="item-name">Nutella Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+        <div class="item"><span class="item-name">Paneer Tandoori Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+        <div class="item"><span class="item-name">Paneer Makhani Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+        <div class="item"><span class="item-name">Veg Club Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+        <div class="item"><span class="item-name">Veg Paneer Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+        <div class="item"><span class="item-name">Classic Delight Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">130</span></div></div>
+        <div class="item"><span class="item-name">Fruit Jam Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">150</span></div></div>
+        <div class="item"><span class="item-name">Jumbo Sandwich</span><span class="item-dots"></span><div class="item-price-container"><span class="price">150</span></div></div>
+      </div>
+
+      <!-- Maggi -->
+      <div class="category">
+        <h2 class="cat-title">Maggi</h2>
+        <div class="item"><span class="item-name">Plain Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">60</span></div></div>
+        <div class="item"><span class="item-name">Masala Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+        <div class="item"><span class="item-name">Veg Corn Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+        <div class="item"><span class="item-name">Plain Cheese Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">80</span></div></div>
+        <div class="item"><span class="item-name">Corn Cheese Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">90</span></div></div>
+        <div class="item"><span class="item-name">Paneer Tandoori Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+        <div class="item"><span class="item-name">Punjabi Tadka Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">100</span></div></div>
+        <div class="item"><span class="item-name">Alfredo Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">120</span></div></div>
+        <div class="item"><span class="item-name">Classic Delight Maggi</span><span class="item-dots"></span><div class="item-price-container"><span class="price">140</span></div></div>
+      </div>
+
+      <!-- Pasta -->
+      <div class="category">
+        <h2 class="cat-title">Pasta</h2>
+        <div class="item"><span class="item-name">Red Sauce Pasta</span><span class="item-dots"></span><div class="item-price-container"><span class="price">110</span></div></div>
+        <div class="item"><span class="item-name">White Sauce Pasta</span><span class="item-dots"></span><div class="item-price-container"><span class="price">130</span></div></div>
+        <div class="item"><span class="item-name">Spaghetti Pasta</span><span class="item-dots"></span><div class="item-price-container"><span class="price">160</span></div></div>
+        <div class="item"><span class="item-name">Hot Garlic Pasta</span><span class="item-dots"></span><div class="item-price-container"><span class="price">180</span></div></div>
+      </div>
     </div>
+
   </div>
 
-  <!-- PAGE 3: Chinese, Rice, Mocktail, Milkshake, Dessert -->
-  <div class="page">
-    <div class="page-content">
-      <!-- Column 1 -->
-      <div class="column">
-        <!-- Chinese -->
-        <div class="category">
-            <h2 class="cat-title">Chinese</h2>
-            <div class="item"><span class="item-name">Veg Noodles</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Manchurian Noodles</span><div class="item-price-container"><span class="price">100</span></div></div>
-            <div class="item"><span class="item-name">Hakka Noodles</span><div class="item-price-container"><span class="price">100</span></div></div>
-            <div class="item"><span class="item-name">Schezwan Noodles</span><div class="item-price-container"><span class="price">110</span></div></div>
-            <div class="item"><span class="item-name">Crispy Noodles</span><div class="item-price-container"><span class="price">110</span></div></div>
-            <div class="item"><span class="item-name">Mushroom Noodles</span><div class="item-price-container"><span class="price">120</span></div></div>
-            <div class="item"><span class="item-name">Garlic Noodles</span><div class="item-price-container"><span class="price">120</span></div></div>
-            <div class="item"><span class="item-name">Singapore Noodles</span><div class="item-price-container"><span class="price">140</span></div></div>
-            
-            <div class="legend" style="margin-top: 5mm;"><span>Dry</span><span>Gravy</span></div>
-            <div class="item"><span class="item-name">Manchurian</span><div class="item-price-container"><span class="price">90</span><span class="price">100</span></div></div>
-            <div class="item"><span class="item-name">Chilly Potato</span><div class="item-price-container"><span class="price">120</span><span class="price">140</span></div></div>
-            <div class="item"><span class="item-name">Honey Chilly Potato</span><div class="item-price-container"><span class="price">130</span><span class="price">150</span></div></div>
-            <div class="item"><span class="item-name">Paneer Chilly</span><div class="item-price-container"><span class="price">160</span><span class="price">170</span></div></div>
-            <div class="item"><span class="item-name">Mushroom Chilly</span><div class="item-price-container"><span class="price">180</span><span class="price">200</span></div></div>
-        </div>
-        
-        <!-- Rice -->
-        <div class="category">
-            <h2 class="cat-title">Rice</h2>
-            <div class="item"><span class="item-name">Veg Fried Rice</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Manchurian Rice</span><div class="item-price-container"><span class="price">120</span></div></div>
-            <div class="item"><span class="item-name">Triple Fried Rice</span><div class="item-price-container"><span class="price">150</span></div></div>
-        </div>
-
-        <!-- Dessert -->
-        <div class="category">
-            <h2 class="cat-title">Dessert</h2>
-            <div class="item"><span class="item-name">Hot Brownie</span><div class="item-price-container"><span class="price">80</span></div></div>
-            <div class="item"><span class="item-name">Hot Brownie with Ice Cream</span><div class="item-price-container"><span class="price">100</span></div></div>
-  
-            <h3 class="sub-cat" style="margin-top: 4mm;">Creamy Ice Cream</h3>
-            <div class="item"><span class="item-name">Classy Vanilla</span><div class="item-price-container"><span class="price">30</span></div></div>
-            <div class="item"><span class="item-name">Rich Dutch Chocolate</span><div class="item-price-container"><span class="price">30</span></div></div>
-            <div class="item"><span class="item-name">American Nutty Delight</span><div class="item-price-container"><span class="price">30</span></div></div>
-        </div>
-      </div>
-
-      <!-- Column 2 -->
-      <div class="column">
-        <!-- Mocktail -->
-        <div class="category">
-            <h2 class="cat-title">Mocktail</h2>
-            <div class="item"><span class="item-name">Mint Mojito</span><div class="item-price-container"><span class="price">80</span></div></div>
-            <div class="item"><span class="item-name">Peach Tea</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Watermelon</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Lemo Ice Tea</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Spicy Lemonade</span><div class="item-price-container"><span class="price">100</span></div></div>
-            <div class="item"><span class="item-name">Blue Curacao</span><div class="item-price-container"><span class="price">110</span></div></div>
-            <div class="item"><span class="item-name">Green Apple</span><div class="item-price-container"><span class="price">120</span></div></div>
-        </div>
-
-        <!-- Milkshake -->
-        <div class="category">
-            <h2 class="cat-title">Milkshake</h2>
-            <div class="item"><span class="item-name">Cold Coffee</span><div class="item-price-container"><span class="price">70</span></div></div>
-            <div class="item"><span class="item-name">Oreo Milkshake</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Kitkat Milkshake</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Mango Milkshake</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Orange Milkshake</span><div class="item-price-container"><span class="price">90</span></div></div>
-            <div class="item"><span class="item-name">Lychee Milkshake</span><div class="item-price-container"><span class="price">100</span></div></div>
-            <div class="item"><span class="item-name">BlackCurrant Milkshake</span><div class="item-price-container"><span class="price">110</span></div></div>
-            <div class="item"><span class="item-name">Strawberry Milkshake</span><div class="item-price-container"><span class="price">110</span></div></div>
-            <div class="item"><span class="item-name">Tiramisu Milkshake</span><div class="item-price-container"><span class="price">120</span></div></div>
-            <div class="item"><span class="item-name">BlueBerry Milkshake</span><div class="item-price-container"><span class="price">120</span></div></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="footer">
-      <span class="footer-highlight">Rahul: 8602686647</span> &nbsp;|&nbsp; 
-      <span class="footer-highlight">Lokendra: 9644565090</span>
-    </div>
-  </div>
-
-  <script>
-    window.onload = function() {
-      // Optional: Auto-trigger print dialog after a brief delay
-      // setTimeout(() => window.print(), 1000);
-    };
-  </script>
 </body>
 </html>
